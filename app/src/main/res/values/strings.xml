@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IbaSecond</string>
+    <string name="home">Home</string>
+    <string name="about_us">About Us</string>
+    <string name="president_word">President Word</string>
+    <string name="service_products">Services</string>
+    <string name="staff">Staff</string>
+    <string name="clients">Clients</string>
+    <string name="gifts">Gifts</string>
+</resources>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    //Social Media
+    <dimen name="social_media_width">30dp</dimen>
+    <dimen name="social_media_height">30dp</dimen>
+    <dimen name="social_media_margin">20dp</dimen>
+
     <dimen name="rl_height">100dp</dimen>
     <dimen name="line_thick">2dp</dimen>
     <dimen name="line_margin">15dp</dimen>

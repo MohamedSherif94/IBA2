@@ -1,358 +1,427 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".HomeActivity">
 
-    <LinearLayout
+
+    <!-- Layout to contain contents of main body of screen -->
+    <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            //Toolbar
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+            //Logo
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/main_logo" />
+
+            //Social Media
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-30dp"
+                android:gravity="center">
+
+                //Facebook Icon
+
+                <ImageView
+                    android:id="@+id/ic_facebook"
+                    android:layout_width="@dimen/social_media_width"
+                    android:layout_height="@dimen/social_media_height"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="@dimen/social_media_margin"
+                    android:onClick="openFacebookPage"
+                    android:src="@drawable/ic_facebook" />
+
+                //Twitter Icon
+
+                <ImageView
+                    android:id="@+id/ic_twitter"
+                    android:layout_width="@dimen/social_media_width"
+                    android:layout_height="@dimen/social_media_height"
+                    android:layout_marginRight="@dimen/social_media_margin"
+                    android:layout_toRightOf="@id/ic_facebook"
+                    android:onClick="openTwitterPage"
+                    android:src="@drawable/ic_twitter" />
+                //LinkedIn Icon
+
+                <ImageView
+                    android:id="@+id/ic_linkedin"
+                    android:layout_width="@dimen/social_media_width"
+                    android:layout_height="@dimen/social_media_height"
+                    android:layout_marginRight="@dimen/social_media_margin"
+                    android:layout_toRightOf="@id/ic_twitter"
+                    android:onClick="openLinkedInPage"
+                    android:src="@drawable/ic_linkedin" />
+            </RelativeLayout>
+
+            //First Row
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                //Home
+
+                <RelativeLayout
+                    android:id="@+id/rl_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ic_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_home" />
+
+                    <TextView
+                        android:id="@+id/textview_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_home"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/home"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                    <View
+                        android:layout_width="@dimen/line_thick"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+                //About Us
+
+                <RelativeLayout
+                    android:id="@+id/rl_about_us"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ic_about_us"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_about_us" />
+
+                    <TextView
+                        android:id="@+id/textview_about_us"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_about_us"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/about_us"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                    <View
+                        android:layout_width="@dimen/line_thick"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+                //President Word
+
+                <RelativeLayout
+                    android:id="@+id/rl_president_word"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ic_president_word"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_president_word" />
+
+                    <TextView
+                        android:id="@+id/textview_president_word"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_president_word"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/president_word"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            //Second Row
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                //Services and Products
+
+                <RelativeLayout
+                    android:id="@+id/rl_services_products"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ic_services_products"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_services_products" />
+
+                    <TextView
+                        android:id="@+id/textview_services_products"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_services_products"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/service_products"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                    <View
+                        android:layout_width="@dimen/line_thick"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+                //Staff
+
+                <RelativeLayout
+                    android:id="@+id/rl_staff"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ic_staff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_staff" />
+
+                    <TextView
+                        android:id="@+id/textview_staff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_staff"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/staff"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                    <View
+                        android:layout_width="@dimen/line_thick"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+                //Clients
+
+                <RelativeLayout
+                    android:id="@+id/rl_clients"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ic_clients"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_clients" />
+
+                    <TextView
+                        android:id="@+id/textview_clients"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_clients"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/clients"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            //Third Row
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                //Gifts
+
+                <RelativeLayout
+                    android:id="@+id/rl_gifts"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/ic_gifts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_gifts" />
+
+                    <TextView
+                        android:id="@+id/textview_gifts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ic_gifts"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/gifts"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                    <View
+                        android:layout_width="@dimen/line_thick"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+                //Free
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                </RelativeLayout>
+
+                //Free
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Container for contents of drawer -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:src="@drawable/main_logo" />
-
-        //First Row
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
-
-            //Home
-
-            <RelativeLayout
-                android:id="@+id/rl_home"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/ic_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_home" />
-
-                <TextView
-                    android:id="@+id/textview_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_home"
-                    android:text="@string/home"
-                    android:textColor="@color/home_text_color"
-                    android:textSize="@dimen/home_text_size" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_thick"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/line_margin"
-                    android:layout_marginRight="@dimen/line_margin"
-                    android:background="@color/line_color"/>
-
-                <View
-                    android:layout_width="@dimen/line_thick"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="@dimen/line_margin"
-                    android:background="@color/line_color" />
-
-            </RelativeLayout>
-
-            //About Us
-
-            <RelativeLayout
-                android:id="@+id/rl_about_us"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/ic_about_us"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_about_us" />
-
-                <TextView
-                    android:id="@+id/textview_about_us"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_about_us"
-                    android:text="@string/about_us"
-                    android:textColor="@color/home_text_color"
-                    android:textSize="@dimen/home_text_size" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_thick"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/line_margin"
-                    android:layout_marginRight="@dimen/line_margin"
-                    android:background="@color/line_color"/>
-
-                <View
-                    android:layout_width="@dimen/line_thick"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="@dimen/line_margin"
-                    android:background="@color/line_color" />
-
-            </RelativeLayout>
-
-            //President Word
-
-            <RelativeLayout
-                android:id="@+id/rl_president_word"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/ic_president_word"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_president_word" />
-
-                <TextView
-                    android:id="@+id/textview_president_word"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_president_word"
-                    android:text="@string/president_word"
-                    android:textColor="@color/home_text_color"
-                    android:textSize="@dimen/home_text_size" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_thick"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/line_margin"
-                    android:layout_marginRight="@dimen/line_margin"
-                    android:background="@color/line_color"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        //Second Row
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            //Services and Products
-
-            <RelativeLayout
-                android:id="@+id/rl_services_products"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/ic_services_products"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_services_products" />
-
-                <TextView
-                    android:id="@+id/textview_services_products"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_services_products"
-                    android:text="@string/service_products"
-                    android:textColor="@color/home_text_color"
-                    android:textSize="@dimen/home_text_size" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_thick"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/line_margin"
-                    android:layout_marginRight="@dimen/line_margin"
-                    android:background="@color/line_color"/>
-
-                <View
-                    android:layout_width="@dimen/line_thick"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="@dimen/line_margin"
-                    android:background="@color/line_color" />
-
-            </RelativeLayout>
-
-            //Staff
-
-            <RelativeLayout
-                android:id="@+id/rl_staff"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/ic_staff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_staff" />
-
-                <TextView
-                    android:id="@+id/textview_staff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_staff"
-                    android:text="@string/staff"
-                    android:textColor="@color/home_text_color"
-                    android:textSize="@dimen/home_text_size" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_thick"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/line_margin"
-                    android:layout_marginRight="@dimen/line_margin"
-                    android:background="@color/line_color"/>
-
-                <View
-                    android:layout_width="@dimen/line_thick"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="@dimen/line_margin"
-                    android:background="@color/line_color" />
-
-            </RelativeLayout>
-
-            //Clients
-
-            <RelativeLayout
-                android:id="@+id/rl_clients"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/ic_clients"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_clients" />
-
-                <TextView
-                    android:id="@+id/textview_clients"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_clients"
-                    android:text="@string/clients"
-                    android:textColor="@color/home_text_color"
-                    android:textSize="@dimen/home_text_size" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_thick"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/line_margin"
-                    android:layout_marginRight="@dimen/line_margin"
-                    android:background="@color/line_color"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        //Third Row
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            //Gifts
-
-            <RelativeLayout
-                android:id="@+id/rl_gifts"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-                <ImageView
-                    android:id="@+id/ic_gifts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_gifts" />
-
-                <TextView
-                    android:id="@+id/textview_gifts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@id/ic_gifts"
-                    android:text="@string/gifts"
-                    android:textColor="@color/home_text_color"
-                    android:textSize="@dimen/home_text_size" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/line_thick"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/line_margin"
-                    android:layout_marginRight="@dimen/line_margin"
-                    android:background="@color/line_color"/>
-
-                <View
-                    android:layout_width="@dimen/line_thick"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginBottom="@dimen/line_margin"
-                    android:background="@color/line_color" />
-
-            </RelativeLayout>
-
-            //Free
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-            </RelativeLayout>
-
-            //Free
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="@dimen/rl_height"
-                android:layout_weight="1">
-
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_view"/>
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_about_us"
+            android:title="@string/about_us" />
+        <item
+            android:id="@+id/nav_president_word"
+            android:icon="@drawable/ic_president_word"
+            android:title="@string/president_word" />
+        <item
+            android:id="@+id/nav_services"
+            android:icon="@drawable/ic_services_products"
+            android:title="@string/service_products" />
+        <item
+            android:id="@+id/nav_staff"
+            android:icon="@drawable/ic_staff"
+            android:title="@string/staff" />
+        <item
+            android:id="@+id/nav_clients"
+            android:icon="@drawable/ic_clients"
+            android:title="@string/clients" />
+        <item
+            android:id="@+id/nav_gifts"
+            android:icon="@drawable/ic_gifts"
+            android:title="@string/gifts" />
+    </group>
+</menu>

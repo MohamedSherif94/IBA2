@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1085979365955",
+    "firebase_url": "https://ibachat-77f29.firebaseio.com",
+    "project_id": "ibachat-77f29",
+    "storage_bucket": "ibachat-77f29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085979365955:android:ee4f62803f56923d",
+        "android_client_info": {
+          "package_name": "com.example.iba.ibasecond"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085979365955-1d5t76cl6p4nr5m5i3j9lp0rkppfofmb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iba.ibasecond",
+            "certificate_hash": "216250fc7c58a81a6cf105697e697055fabcfa8e"
+          }
+        },
+        {
+          "client_id": "1085979365955-1pngodhta778us114r9ki073mrj2i2oa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvSgqWR3EZR3PiaD-2JfS83WSv5FN153M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085979365955-1pngodhta778us114r9ki073mrj2i2oa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

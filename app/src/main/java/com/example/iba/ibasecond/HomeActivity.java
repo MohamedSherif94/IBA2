@@ -78,4 +78,14 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkedinUrl));
         startActivity(intent);
     }
+
+    public void openLoginActivity(View view) {
+        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void openChatHomeActivity(View view) {
+        Intent intent = new Intent(HomeActivity.this, HomeChatActivity.class);
+        startActivity(intent);
+    }
 }

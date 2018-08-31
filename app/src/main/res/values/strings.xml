@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IbaSecond</string>
+    <string name="app_name">IBA</string>
     <string name="home">Home</string>
     <string name="about_us">About Us</string>
     <string name="president_word">President Word</string>
@@ -7,4 +7,27 @@
     <string name="staff">Staff</string>
     <string name="clients">Clients</string>
     <string name="gifts">Gifts</string>
+    <string name="help_center_text">Can i help you?</string>
+
+    <!-- Start Activity -->
+    <string name="welcome_to_chat">Welcome To Chat</string>
+    <string name="already_have_account">ALREADY HAVE ACCOUNT</string>
+    <string name="need_a_new_account">NEED A NEW ACCOUNT ?</string>
+    <!-- Register Activity -->
+    <string name="display_name">Display Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <!-- Login Activity -->
+    <string name="login">Login</string>
+    <!-- Chat Home Activity -->
+    <string name="log_out">Log Out</string>
+
+    <!-- Home Chat Activity-->
+    <string name="requests_fragment">Requests fragment</string>
+    <string name="chats_fragment">Chats fragment</string>
+    <string name="friends_fragment">Friends fragment</string>
+
+    <!-- Home Chat Activity-->
+    <string name="status">Hi there, I\'m using IBA chat</string>
 </resources>

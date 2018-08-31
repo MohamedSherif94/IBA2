@@ -9,6 +9,15 @@
     <string name="gifts">Gifts</string>
     <string name="help_center_text">Can i help you?</string>
 
+    <string name="home_arabic">الصفحة الرئيسية</string>
+    <string name="about_us_arabic">معلومات عن الأكاديمية</string>
+    <string name="president_word_arabic">كلمة رئيس الأكاديمية</string>
+    <string name="service_products_arabic">الخدمات</string>
+    <string name="staff_arabic">الموظفين</string>
+    <string name="clients_arabic">العملاء</string>
+    <string name="gifts_arabic">الهدايا</string>
+    <string name="help_center_text_arabic">هل يمكننى مساعدتك</string>
+
     <!-- Start Activity -->
     <string name="welcome_to_chat">Welcome To Chat</string>
     <string name="already_have_account">ALREADY HAVE ACCOUNT</string>

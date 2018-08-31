@@ -10,18 +10,33 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private String facebookUrl = "https://www.facebook.com/iba.eg.usa/";
-    private String twitterUrl = "https://twitter.com/iba_usa";
-    private String linkedinUrl = "https://eg.linkedin.com/in/iba-eg-usa-71192016a?trk=profile-badge";
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private Toolbar mToolbar;
+
+    //Social Media
+    private ImageView mImVFacebook;
+    private ImageView mImVTwitter;
+    private ImageView mImVLinkedin;
+
+    private RelativeLayout mRLServices;
+
+    private Button mChatBtn;
+
+
+    HelperClass helperClass = new HelperClass(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +52,23 @@ public class HomeActivity extends AppCompatActivity {
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mNavigationView = findViewById(R.id.nav_view);
+
+
+        mImVFacebook = findViewById(R.id.home_ic_facebook);
+        mImVTwitter = findViewById(R.id.home_ic_twitter);
+        mImVLinkedin = findViewById(R.id.home_ic_linkedin);
+
+        mRLServices = findViewById(R.id.home_rl_services);
+
+        mChatBtn = findViewById(R.id.home_chat_btn);
+        mChatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openChatHomeActivity();
+            }
+        });
+
+
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -53,39 +85,77 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
 
+
+        mImVFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openFacebookPage();
+            }
+        });
+
+        mImVTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openTwitterPage();
+            }
+        });
+
+        mImVLinkedin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openLinkedInPage();
+            }
+        });
+
+        mRLServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openServicesActivity();
+            }
+        });
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+                mDrawerLayout.openDrawer(GravityCompat.END);
+                return true;
+
+            case R.id.home_chat_logout_btn:
+                FirebaseAuth.getInstance().signOut();
+                Intent homeStudentIntent = new Intent(HomeActivity.this, HomeStudentActivity.class);
+                homeStudentIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(homeStudentIntent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-    public void openFacebookPage(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookUrl));
-        startActivity(intent);
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        getMenuInflater().inflate(R.menu.home_chat_menu, menu);
+        return true;
     }
 
-    public void openTwitterPage(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(twitterUrl));
-        startActivity(intent);
-    }
 
-    public void openLinkedInPage(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkedinUrl));
-        startActivity(intent);
-    }
 
-    public void openLoginActivity(View view) {
-        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
 
-    public void openChatHomeActivity(View view) {
-        Intent intent = new Intent(HomeActivity.this, HomeChatActivity.class);
-        startActivity(intent);
+
+
+
+    /*
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
+    */
 }

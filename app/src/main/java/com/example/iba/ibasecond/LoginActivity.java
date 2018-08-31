@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+
 public class LoginActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
@@ -85,10 +86,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     mLogProgressDialog.dismiss();
 
-                    Intent homeChatIntent = new Intent(LoginActivity.this, HomeChatActivity.class);
-                    //homeChatIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(homeChatIntent);
-                    finish();
+                    //Intent homeChatIntent = new Intent(LoginActivity.this, HomeChatActivity.class);
+                    Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                    homeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(homeIntent);
+
                 }else {
 
                     mLogProgressDialog.hide();

@@ -5,30 +5,30 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="@string/home" />
+            android:title="@string/home_arabic" />
         <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_about_us"
-            android:title="@string/about_us" />
+            android:title="@string/about_us_arabic" />
         <item
             android:id="@+id/nav_president_word"
             android:icon="@drawable/ic_president_word"
-            android:title="@string/president_word" />
+            android:title="@string/president_word_arabic" />
         <item
             android:id="@+id/nav_services"
             android:icon="@drawable/ic_services_products"
-            android:title="@string/service_products" />
+            android:title="@string/service_products_arabic" />
         <item
             android:id="@+id/nav_staff"
             android:icon="@drawable/ic_staff"
-            android:title="@string/staff" />
+            android:title="@string/staff_arabic" />
         <item
             android:id="@+id/nav_clients"
             android:icon="@drawable/ic_clients"
-            android:title="@string/clients" />
+            android:title="@string/clients_arabic" />
         <item
             android:id="@+id/nav_gifts"
             android:icon="@drawable/ic_gifts"
-            android:title="@string/gifts" />
+            android:title="@string/gifts_arabic" />
     </group>
 </menu>

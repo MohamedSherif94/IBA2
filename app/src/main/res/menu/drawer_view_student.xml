@@ -5,27 +5,27 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="@string/home_arabic" />
+            android:title="@string/last_news_arabic" />
         <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_about_us"
             android:title="@string/about_us_arabic" />
         <item
             android:id="@+id/nav_president_word"
-            android:icon="@drawable/ic_president_word"
-            android:title="@string/president_word_arabic" />
+            android:icon="@drawable/ic_training"
+            android:title="@string/training_arabic" />
         <item
             android:id="@+id/nav_services"
-            android:icon="@drawable/ic_services_products"
-            android:title="@string/service_products_arabic" />
+            android:icon="@drawable/ic_works_development"
+            android:title="@string/works_development_arabic" />
         
         <item
             android:id="@+id/nav_clients"
             android:icon="@drawable/ic_clients"
-            android:title="@string/clients_arabic" />
+            android:title="@string/payment_arabic" />
         <item
             android:id="@+id/nav_gifts"
             android:icon="@drawable/ic_gifts"
-            android:title="@string/gifts_arabic" />
+            android:title="@string/library_arabic" />
     </group>
 </menu>

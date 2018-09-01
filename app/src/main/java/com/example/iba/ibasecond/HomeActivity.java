@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         mImVTwitter = findViewById(R.id.home_ic_twitter);
         mImVLinkedin = findViewById(R.id.home_ic_linkedin);
 
-        mRLServices = findViewById(R.id.home_rl_services);
+        mRLServices = findViewById(R.id.home_rl_works_development);
 
         mChatBtn = findViewById(R.id.home_chat_btn);
         mChatBtn.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         mRLServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openServicesActivity();
+                helperClass.openWorksDevelopmentActivity();
             }
         });
 

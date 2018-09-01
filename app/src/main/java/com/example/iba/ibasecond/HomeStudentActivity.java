@@ -27,7 +27,8 @@ public class HomeStudentActivity extends AppCompatActivity {
     private ImageView mImVTwitter;
     private ImageView mImVLinkedin;
 
-    private RelativeLayout mRLServices;
+    private RelativeLayout mRLTraining;
+    private RelativeLayout mRLWorksDevlopment;
 
     HelperClass helperClass = new HelperClass(this);
 
@@ -52,7 +53,8 @@ public class HomeStudentActivity extends AppCompatActivity {
         mImVTwitter = findViewById(R.id.home_ic_twitter);
         mImVLinkedin = findViewById(R.id.home_ic_linkedin);
 
-        mRLServices = findViewById(R.id.home_student_rl_services);
+        mRLWorksDevlopment = findViewById(R.id.home_student_rl_works_development);
+        mRLTraining = findViewById(R.id.home_student_rl_training);
 
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -100,10 +102,17 @@ public class HomeStudentActivity extends AppCompatActivity {
             }
         });
 
-        mRLServices.setOnClickListener(new View.OnClickListener() {
+        mRLWorksDevlopment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openServicesActivity();
+                helperClass.openWorksDevelopmentActivity();
+            }
+        });
+
+        mRLTraining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openTrainingActivity();
             }
         });
 

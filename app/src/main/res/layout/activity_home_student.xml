@@ -84,7 +84,6 @@
             </RelativeLayout>
 
             //First Row
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,16 +91,15 @@
                 android:layoutDirection="rtl"
                 android:orientation="horizontal">
 
-                //Home
-
+                //Last News
                 <RelativeLayout
-                    android:id="@+id/rl_home"
+                    android:id="@+id/home_rl_last_news"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/rl_height"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/ic_home"
+                        android:id="@+id/home_ic_last_news"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -112,9 +110,9 @@
                         android:id="@+id/textview_home"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/ic_home"
+                        android:layout_below="@id/home_ic_last_news"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/home_arabic"
+                        android:text="@string/last_news_arabic"
                         android:textColor="@color/home_text_color"
                         android:textSize="@dimen/home_text_size" />
 
@@ -136,15 +134,14 @@
                 </RelativeLayout>
 
                 //About Us
-
                 <RelativeLayout
-                    android:id="@+id/rl_about_us"
+                    android:id="@+id/home_rl_about_us"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/rl_height"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/ic_about_us"
+                        android:id="@+id/home_ic_about_us"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -155,7 +152,7 @@
                         android:id="@+id/textview_about_us"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/ic_about_us"
+                        android:layout_below="@id/home_ic_about_us"
                         android:layout_centerHorizontal="true"
                         android:text="@string/about_us_arabic"
                         android:textColor="@color/home_text_color"
@@ -178,106 +175,15 @@
 
                 </RelativeLayout>
 
-                //President Word
-
+                //Library
                 <RelativeLayout
-                    android:id="@+id/rl_president_word"
+                    android:id="@+id/home_student_rl_library"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/rl_height"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/ic_president_word"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_president_word" />
-
-                    <TextView
-                        android:id="@+id/textview_president_word"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/ic_president_word"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/president_word_arabic"
-                        android:textColor="@color/home_text_color"
-                        android:textSize="@dimen/home_text_size" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/line_thick"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/line_margin"
-                        android:layout_marginRight="@dimen/line_margin"
-                        android:background="@color/line_color" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            //Second Row
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layoutDirection="rtl"
-                android:orientation="horizontal">
-
-                //Services and Products
-
-                <RelativeLayout
-                    android:id="@+id/home_student_rl_services"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/rl_height"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/home_student_ic_services"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_services_products" />
-
-                    <TextView
-                        android:id="@+id/textview_services_products"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_student_ic_services"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/service_products_arabic"
-                        android:textColor="@color/home_text_color"
-                        android:textSize="@dimen/home_text_size" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/line_thick"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/line_margin"
-                        android:layout_marginRight="@dimen/line_margin"
-                        android:background="@color/line_color" />
-
-                    <View
-                        android:layout_width="@dimen/line_thick"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginBottom="@dimen/line_margin"
-                        android:background="@color/line_color" />
-
-                </RelativeLayout>
-
-                //Gifts
-
-                <RelativeLayout
-                    android:id="@+id/rl_gifts"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/rl_height"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/ic_gifts"
+                        android:id="@+id/home_student_ic_library"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -285,12 +191,56 @@
                         android:src="@drawable/ic_gifts" />
 
                     <TextView
-                        android:id="@+id/textview_gifts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/ic_gifts"
+                        android:layout_below="@id/home_student_ic_library"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/gifts_arabic"
+                        android:text="@string/library_arabic"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            //Second Row
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal">
+
+                //Training
+                <RelativeLayout
+                    android:id="@+id/home_student_rl_training"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/home_student_ic_training"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_training" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/home_student_ic_training"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/training_arabic"
                         android:textColor="@color/home_text_color"
                         android:textSize="@dimen/home_text_size" />
 
@@ -311,17 +261,56 @@
 
                 </RelativeLayout>
 
-
-                //Clients
-
+                //Works Development
                 <RelativeLayout
-                    android:id="@+id/rl_clients"
+                    android:id="@+id/home_student_rl_works_development"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/rl_height"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/ic_clients"
+                        android:id="@+id/home_student_ic_works_dev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_works_development" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/home_student_ic_works_dev"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/works_development_arabic"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                    <View
+                        android:layout_width="@dimen/line_thick"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="@dimen/line_margin"
+                        android:background="@color/line_color" />
+
+                </RelativeLayout>
+
+                //Payment
+                <RelativeLayout
+                    android:id="@+id/home_student_rl_payment"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/home_student_ic_payment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
@@ -329,12 +318,11 @@
                         android:src="@drawable/ic_clients" />
 
                     <TextView
-                        android:id="@+id/textview_clients"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/ic_clients"
+                        android:layout_below="@id/home_student_ic_payment"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/clients_arabic"
+                        android:text="@string/payment_arabic"
                         android:textColor="@color/home_text_color"
                         android:textSize="@dimen/home_text_size" />
 
@@ -351,7 +339,6 @@
             </LinearLayout>
 
             //Third Row
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

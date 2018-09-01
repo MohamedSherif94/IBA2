@@ -45,7 +45,11 @@
         <activity android:name=".HomeStudentActivity" />
         <activity
             android:name=".Services.ServicesActivity"
-            android:theme="@style/ThemeWithActionBar"/>
+            android:theme="@style/ThemeWithActionBar" />
+        <activity android:name=".works_development.WorksDevelopmentActivity" />
+        <activity android:name=".training.TrainingActivity" />
+        <activity android:name=".training.HeadOrOnlineTrainingActivity" />
+        <activity android:name=".training.head_online_training_courses.EconomyCoursesActivity"></activity>
     </application>
 
 </manifest>

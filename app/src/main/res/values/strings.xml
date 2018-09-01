@@ -9,13 +9,13 @@
     <string name="gifts">Gifts</string>
     <string name="help_center_text">Can i help you?</string>
 
-    <string name="home_arabic">الصفحة الرئيسية</string>
+    <string name="last_news_arabic">أخر الأخبار</string>
     <string name="about_us_arabic">معلومات عن الأكاديمية</string>
-    <string name="president_word_arabic">كلمة رئيس الأكاديمية</string>
-    <string name="service_products_arabic">الخدمات</string>
+    <string name="training_arabic">التدريب</string>
+    <string name="works_development_arabic">تطوير الأعمال</string>
     <string name="staff_arabic">الموظفين</string>
-    <string name="clients_arabic">العملاء</string>
-    <string name="gifts_arabic">الهدايا</string>
+    <string name="payment_arabic">طرق الدفع</string>
+    <string name="library_arabic">المكتبة</string>
     <string name="help_center_text_arabic">هل يمكننى مساعدتك</string>
 
     <!-- Start Activity -->
@@ -39,4 +39,16 @@
 
     <!-- Home Chat Activity-->
     <string name="status">Hi there, I\'m using IBA chat</string>
+
+    <!-- HeadOnline Activity -->
+    <string name="economy">1- الاقتصاد</string>
+    <string name="stock_market">2- البورصة</string>
+    <string name="financial_analysis">1.2- التحليل المالي</string>
+    <string name="technical_analysis">2.2- التحليل الفني</string>
+    <string name="banks">3- البنوك</string>
+    <string name="management">4- الإدارة</string>
+    <string name="international_certificate">5- الشهادة الدولية</string>
+    <string name="marketing">6- التسويق</string>
+    <string name="computer_courses">7- كورسات الكمبيوتر</string>
+    <string name="languages">8- اللغات</string>
 </resources>

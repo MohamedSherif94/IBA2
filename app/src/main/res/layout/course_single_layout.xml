@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:id="@+id/course_single_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/course_single_layout_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/account_im"/>
+
+        //Course Name
+        <TextView
+            android:id="@+id/course_single_layout_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"
+            android:text="Display Name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    //Course Price
+    <TextView
+        android:id="@+id/course_single_layout_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_below="@id/course_single_linearlayout"
+        android:layout_centerHorizontal="true"
+        android:text="Display Name"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"
+        android:textSize="25sp" />
+
+    //Course Place
+    <TextView
+        android:id="@+id/course_single_layout_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"
+        android:layout_below="@id/course_single_layout_price"
+        android:text="Display Name"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thick"
+        android:layout_below="@id/course_single_layout_place"
+        android:background="@color/line_color" />
+
+</RelativeLayout>

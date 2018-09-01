@@ -3,7 +3,6 @@ package com.example.iba.ibasecond.Services;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -81,7 +80,7 @@ public class ServicesActivity extends AppCompatActivity {
                 // Create a new instance of the ViewHolder, in this case we are using a custom
                 // layout called R.layout.message for each item
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.service_single_layout, parent, false);
+                        .inflate(R.layout.course_single_layout, parent, false);
 
                 return new ServicesViewHolder(view);
             }
@@ -120,13 +119,13 @@ public class ServicesActivity extends AppCompatActivity {
 
         public void setCourseName(String name){
 
-            TextView courseNameView = mView.findViewById(R.id.service_single_layout_name);
+            TextView courseNameView = mView.findViewById(R.id.course_single_layout_name);
             courseNameView.setText(name);
         }
 
         public void setCourseImage(String image){
 
-            ImageView courseImageView = mView.findViewById(R.id.service_single_layout_image);
+            ImageView courseImageView = mView.findViewById(R.id.course_single_layout_image);
             Picasso.get().load(image).placeholder(R.drawable.account_im).into(courseImageView);
         }
     }

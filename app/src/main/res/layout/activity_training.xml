@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".training.TrainingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/app_bar_layout"
+            android:id="@+id/training_toolbar"/>
+
+        //Logo
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/acd_logo" />
+
+        //First Row
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/training_tourism_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp"
+                android:layout_marginRight="10dp"
+                android:text="سياحة" />
+
+            <Button
+                android:id="@+id/training_head_online_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp"
+                android:text="بالمقر أو أونلاين" />
+
+        </LinearLayout>
+
+        //Second Row
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/training_universities_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp"
+                android:layout_marginRight="10dp"
+                android:text="الجامعات و المعاهد" />
+
+            <Button
+                android:id="@+id/training_companies_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp"
+                android:text="الشركات" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

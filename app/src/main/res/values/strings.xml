@@ -16,6 +16,7 @@
     <string name="staff_arabic">الموظفين</string>
     <string name="payment_arabic">طرق الدفع</string>
     <string name="library_arabic">المكتبة</string>
+    <string name="courses_update">تحديث الكورسات</string>
     <string name="help_center_text_arabic">هل يمكننى مساعدتك</string>
 
     <!-- Start Activity -->
@@ -51,4 +52,23 @@
     <string name="marketing">6- التسويق</string>
     <string name="computer_courses">7- كورسات الكمبيوتر</string>
     <string name="languages">8- اللغات</string>
+
+    <!-- Update Type Activity -->
+    <string-array name="head_or_online_courses">
+
+        <item>الاقتصاد</item>
+        <item>التحليل المالي</item>
+        <item>التحليل الفني</item>
+        <item>البنوك</item>
+        <item>الإدارة</item>
+        <item>الشهادة الدولية</item>
+        <item>التسويق</item>
+        <item>كورسات الكمبيوتر</item>
+        <item>اللغات</item>
+
+    </string-array>
+
+    <string name="choose_course_category">من فضلك إختار فئة الكورس الذى تريد إضافته أو تحديثه :</string>
+    <string name="adding_new_course">إضافة كورس جديد</string>
+    <string name="update_course">تحديث كورس</string>
 </resources>

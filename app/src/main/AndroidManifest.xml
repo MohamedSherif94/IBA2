@@ -49,7 +49,11 @@
         <activity android:name=".works_development.WorksDevelopmentActivity" />
         <activity android:name=".training.TrainingActivity" />
         <activity android:name=".training.HeadOrOnlineTrainingActivity" />
-        <activity android:name=".training.head_online_training_courses.EconomyCoursesActivity"></activity>
+        <activity android:name=".training.head_online_training_courses.EconomyCoursesActivity" />
+        <activity android:name=".courses_update.CoursesTypesActivity" />
+        <activity android:name=".courses_update.UpdateTypeActivity" />
+        <activity android:name=".courses_update.AddingCourseActivity" />
+        <activity android:name=".courses_update.UpdateCourseActivity"></activity>
     </application>
 
 </manifest>

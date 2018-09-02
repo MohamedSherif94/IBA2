@@ -31,7 +31,10 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView mImVTwitter;
     private ImageView mImVLinkedin;
 
-    private RelativeLayout mRLServices;
+    private RelativeLayout mRLTraining;
+    private RelativeLayout mRLWorksDevlopment;
+    private RelativeLayout mRLCoursesUpdate;
+
 
     private Button mChatBtn;
 
@@ -58,7 +61,9 @@ public class HomeActivity extends AppCompatActivity {
         mImVTwitter = findViewById(R.id.home_ic_twitter);
         mImVLinkedin = findViewById(R.id.home_ic_linkedin);
 
-        mRLServices = findViewById(R.id.home_rl_works_development);
+        mRLWorksDevlopment = findViewById(R.id.home_rl_works_development);
+        mRLTraining = findViewById(R.id.home_rl_training);
+        mRLCoursesUpdate = findViewById(R.id.home_rl_courses_update);
 
         mChatBtn = findViewById(R.id.home_chat_btn);
         mChatBtn.setOnClickListener(new View.OnClickListener() {
@@ -107,10 +112,24 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        mRLServices.setOnClickListener(new View.OnClickListener() {
+        mRLWorksDevlopment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 helperClass.openWorksDevelopmentActivity();
+            }
+        });
+
+        mRLTraining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openTrainingActivity();
+            }
+        });
+
+        mRLCoursesUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openCoursesTypeActivity();
             }
         });
 

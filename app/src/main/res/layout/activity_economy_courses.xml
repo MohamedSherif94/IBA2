@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".training.head_online_training_courses.EconomyCoursesActivity">
+    tools:context=".training.CoursesActivity">
 
     <include
         android:id="@+id/economy_toolbar"

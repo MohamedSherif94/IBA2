@@ -53,10 +53,13 @@
     <string name="computer_courses">7- كورسات الكمبيوتر</string>
     <string name="languages">8- اللغات</string>
 
+    <!-- Tourism Courses Activity -->
+    <string name="cairo_program">1- برنامج القاهرة</string>
+
     <!-- Update Type Activity -->
     <string-array name="head_or_online_courses">
 
-        <item>الاقتصاد</item>
+        <item>الإقتصاد</item>
         <item>التحليل المالي</item>
         <item>التحليل الفني</item>
         <item>البنوك</item>
@@ -68,7 +71,22 @@
 
     </string-array>
 
+    <string-array name="tourism_programs">
+        <item>القاهرة</item>
+    </string-array>
+
     <string name="choose_course_category">من فضلك إختار فئة الكورس الذى تريد إضافته أو تحديثه :</string>
     <string name="adding_new_course">إضافة كورس جديد</string>
     <string name="update_course">تحديث كورس</string>
+
+
+    <!-- Works Development Activity -->
+    <string name="comp_establish">1- تأسيس الشركات</string>
+    <string name="electronic_marketing">2- التسويق الإلكتروني</string>
+
+    <!-- Works Development Activity -->
+    <string name="free_books">1- كتب مجانية</string>
+    <string name="payed_books">2- كتب مدفوعة</string>
+    <string name="library_photos">3- صور</string>
+    <string name="library_video">4- فيديوهات</string>
 </resources>

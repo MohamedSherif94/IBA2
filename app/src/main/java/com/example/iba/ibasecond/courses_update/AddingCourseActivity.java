@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.iba.ibasecond.HelperClass;
 import com.example.iba.ibasecond.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,8 +23,11 @@ import java.util.HashMap;
 
 public class AddingCourseActivity extends AppCompatActivity {
 
+    HelperClass helperClass = new HelperClass(this);
+
     private Toolbar mToolbar;
 
+    private String course_type;
     private String course_category;
 
     private DatabaseReference mDatabase;
@@ -46,6 +50,7 @@ public class AddingCourseActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("إضافة كورس جديد");
 
+        course_type = getIntent().getStringExtra("course_type");
         course_category = getIntent().getStringExtra("course_category");
        // Log.v(this.getClass().getSimpleName(), "course_category : "+ course_category);
 
@@ -83,10 +88,8 @@ public class AddingCourseActivity extends AppCompatActivity {
 
     private void addCourse(String course_code, String course_name, String course_place, String course_price) {
 
-        String category = getEnglishCourseCategory(course_category);
-
         mDatabase = FirebaseDatabase.getInstance().getReference()
-                .child("Training").child("HeadOrOnline").child(category).child(course_code);
+                .child("Training").child(course_type).child(course_category).child(course_code);
 
         HashMap<String, String> courseMap = new HashMap<>();
         courseMap.put("name", course_name);
@@ -103,23 +106,11 @@ public class AddingCourseActivity extends AppCompatActivity {
                 }
                 else {
                     mRegProgressDialog.dismiss();
-                    Toast.makeText(AddingCourseActivity.this, "حدث خطأ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AddingCourseActivity.this, "حدث خطأ فى إضافة الكورس", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
-    }
-
-    private String getEnglishCourseCategory(String category) {
-
-        switch (category){
-
-            case "الاقتصاد":
-                return "Economy";
-            case "البنوك":
-                return "Banks";
-        }
-        return null;
     }
 
 }

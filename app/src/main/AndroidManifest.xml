@@ -48,12 +48,15 @@
             android:theme="@style/ThemeWithActionBar" />
         <activity android:name=".works_development.WorksDevelopmentActivity" />
         <activity android:name=".training.TrainingActivity" />
-        <activity android:name=".training.HeadOrOnlineTrainingActivity" />
-        <activity android:name=".training.head_online_training_courses.EconomyCoursesActivity" />
+        <activity android:name=".training.head_online_courses.HeadOrOnlineCoursesActivity" />
+        <activity android:name=".training.CoursesActivity" />
         <activity android:name=".courses_update.CoursesTypesActivity" />
         <activity android:name=".courses_update.UpdateTypeActivity" />
         <activity android:name=".courses_update.AddingCourseActivity" />
-        <activity android:name=".courses_update.UpdateCourseActivity"></activity>
+        <activity android:name=".courses_update.UpdateCourseActivity" />
+        <activity android:name=".training.tourism_courses.TourismCoursesActivity" />
+        <activity android:name=".training.companies_courses.CompaniesCoursesActivity" />
+        <activity android:name=".library.LibraryActivity"></activity>
     </application>
 
 </manifest>

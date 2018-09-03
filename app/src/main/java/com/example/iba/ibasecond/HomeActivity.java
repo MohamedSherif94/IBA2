@@ -34,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
     private RelativeLayout mRLTraining;
     private RelativeLayout mRLWorksDevlopment;
     private RelativeLayout mRLCoursesUpdate;
+    private RelativeLayout mRLLibrary;
 
 
     private Button mChatBtn;
@@ -64,6 +65,7 @@ public class HomeActivity extends AppCompatActivity {
         mRLWorksDevlopment = findViewById(R.id.home_rl_works_development);
         mRLTraining = findViewById(R.id.home_rl_training);
         mRLCoursesUpdate = findViewById(R.id.home_rl_courses_update);
+        mRLLibrary = findViewById(R.id.home_rl_library);
 
         mChatBtn = findViewById(R.id.home_chat_btn);
         mChatBtn.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +132,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 helperClass.openCoursesTypeActivity();
+            }
+        });
+
+        mRLLibrary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openLibraryActivity();
             }
         });
 

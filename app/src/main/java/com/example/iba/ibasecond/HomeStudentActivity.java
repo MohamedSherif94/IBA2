@@ -29,6 +29,7 @@ public class HomeStudentActivity extends AppCompatActivity {
 
     private RelativeLayout mRLTraining;
     private RelativeLayout mRLWorksDevlopment;
+    private RelativeLayout mRLLibrary;
 
     HelperClass helperClass = new HelperClass(this);
 
@@ -55,6 +56,7 @@ public class HomeStudentActivity extends AppCompatActivity {
 
         mRLWorksDevlopment = findViewById(R.id.home_student_rl_works_development);
         mRLTraining = findViewById(R.id.home_student_rl_training);
+        mRLLibrary = findViewById(R.id.home_student_rl_library);
 
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -113,6 +115,13 @@ public class HomeStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 helperClass.openTrainingActivity();
+            }
+        });
+
+        mRLLibrary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openLibraryActivity();
             }
         });
 

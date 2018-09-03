@@ -16,7 +16,7 @@
 
         <include
             layout="@layout/app_bar_layout"
-            android:id="@+id/update_courses_types_toolbar"/>
+            android:id="@+id/courses_types_toolbar"/>
 
         //Logo
         <ImageView
@@ -35,7 +35,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/update_courses_types_head_online_btn"
+                android:id="@+id/courses_types_head_online_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -44,7 +44,7 @@
                 android:text="بالمقر أو أونلاين" />
 
             <Button
-                android:id="@+id/update_courses_types_tourism_btn"
+                android:id="@+id/courses_types_tourism_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -64,7 +64,7 @@
             android:layout_marginTop="20dp">
 
             <Button
-                android:id="@+id/update_courses_types_companies_btn"
+                android:id="@+id/courses_types_companies_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -73,7 +73,7 @@
                 android:text="الشركات" />
 
             <Button
-                android:id="@+id/update_courses_types_universities_btn"
+                android:id="@+id/courses_types_universities_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -15,6 +15,9 @@ public class TrainingActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
     private Button mHeadOnlineBtn;
+    private Button mTourismBtn;
+    private Button mCompaniesBtn;
+    private Button mUniversitiesBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,21 @@ public class TrainingActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Training");
 
         mHeadOnlineBtn = findViewById(R.id.training_head_online_btn);
+        mTourismBtn = findViewById(R.id.training_tourism_btn);
+        mCompaniesBtn = findViewById(R.id.training_companies_btn);
+        mUniversitiesBtn = findViewById(R.id.training_universities_btn);
+
         mHeadOnlineBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openHeadOnlineTrainingActivity();
+                helperClass.openHeadOnlineCoursesActivity();
+            }
+        });
+
+        mTourismBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openTourismCoursesActivity();
             }
         });
 

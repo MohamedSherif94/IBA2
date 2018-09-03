@@ -17,6 +17,7 @@ public class UpdateTypeActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
     private String[] coursesList;
+    private String course_type;
 
 
     private Spinner mCoursesListSpinner;
@@ -37,7 +38,8 @@ public class UpdateTypeActivity extends AppCompatActivity {
         mupdateCourseBtn = findViewById(R.id.update_type_update_course_btn);
 
 
-       coursesList = getIntent().getStringArrayExtra("courses_list");
+       coursesList = getIntent().getStringArrayExtra(helperClass.COURSES_LIST);
+       course_type = getIntent().getStringExtra(helperClass.COURSE_TYPE);
 
         addItemsOnSpinner();
 
@@ -45,14 +47,14 @@ public class UpdateTypeActivity extends AppCompatActivity {
         mAddnewCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openAddingCourseActivity(String.valueOf(mCoursesListSpinner.getSelectedItem()));
+                helperClass.openAddingCourseActivity(course_type, String.valueOf(mCoursesListSpinner.getSelectedItem()));
             }
         });
 
         mupdateCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openUpdateCourseActivity();
+                helperClass.openUpdateCourseActivity(course_type, String.valueOf(mCoursesListSpinner.getSelectedItem()));
 
             }
         });

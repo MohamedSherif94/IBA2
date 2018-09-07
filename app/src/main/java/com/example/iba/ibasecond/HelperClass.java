@@ -9,12 +9,17 @@ import com.example.iba.ibasecond.courses_update.AddingCourseActivity;
 import com.example.iba.ibasecond.courses_update.CoursesTypesActivity;
 import com.example.iba.ibasecond.courses_update.UpdateCourseActivity;
 import com.example.iba.ibasecond.courses_update.UpdateTypeActivity;
+import com.example.iba.ibasecond.last_news.LastNewsActivity;
+import com.example.iba.ibasecond.last_news.NewsUpdateActivity;
 import com.example.iba.ibasecond.library.LibraryActivity;
+import com.example.iba.ibasecond.payment_methods.PaymentMethodsActivity;
 import com.example.iba.ibasecond.training.head_online_courses.HeadOrOnlineCoursesActivity;
 import com.example.iba.ibasecond.training.TrainingActivity;
 import com.example.iba.ibasecond.training.CoursesActivity;
 import com.example.iba.ibasecond.training.tourism_courses.TourismCoursesActivity;
 import com.example.iba.ibasecond.works_development.WorksDevelopmentActivity;
+
+import java.util.Random;
 
 public class HelperClass {
 
@@ -27,6 +32,9 @@ public class HelperClass {
     public static String COURSE_TYPE = "course_type";
     public static String COURSE_CATEGORY = "course_category";
     public static String COURSES_LIST = "courses_list";
+
+    public static String LAST_NEWS = "أخر الأخبار";
+
 
 
     public HelperClass(Context context) {
@@ -56,6 +64,11 @@ public class HelperClass {
 
     public void openChatHomeActivity() {
         Intent intent = new Intent(context, HomeChatActivity.class);
+        context.startActivity(intent);
+    }
+
+    public void openPaymentMethodsActivity() {
+        Intent intent = new Intent(context, PaymentMethodsActivity.class);
         context.startActivity(intent);
     }
 
@@ -117,22 +130,31 @@ public class HelperClass {
         context.startActivity(intent);
     }
 
+    public void openLastNewsActivity() {
+        Intent intent = new Intent(context, LastNewsActivity.class);
+        context.startActivity(intent);
+    }
+
+    public void openNewsUpdateActivity() {
+        Intent intent = new Intent(context, NewsUpdateActivity.class);
+        context.startActivity(intent);
+    }
+
     public void openServicesActivity() {
         Intent intent = new Intent(context, ServicesActivity.class);
         context.startActivity(intent);
     }
 
-
-    public String getEnglishCourseCategory(String category) {
-
-        switch (category){
-
-            case "الاقتصاد":
-                return "Economy";
-            case "البنوك":
-                return "Banks";
+    public static String random() {
+        Random generator = new Random();
+        StringBuilder randomStringBuilder = new StringBuilder();
+        int randomLength = generator.nextInt(15);
+        char tempChar;
+        for (int i = 0; i < randomLength; i++) {
+            tempChar = (char) (generator.nextInt(96) + 32);
+            randomStringBuilder.append(tempChar);
         }
-        return null;
+        return randomStringBuilder.toString();
     }
 
 }

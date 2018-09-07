@@ -56,7 +56,10 @@
         <activity android:name=".courses_update.UpdateCourseActivity" />
         <activity android:name=".training.tourism_courses.TourismCoursesActivity" />
         <activity android:name=".training.companies_courses.CompaniesCoursesActivity" />
-        <activity android:name=".library.LibraryActivity"></activity>
+        <activity android:name=".library.LibraryActivity" />
+        <activity android:name=".last_news.LastNewsActivity" />
+        <activity android:name=".last_news.NewsUpdateActivity" />
+        <activity android:name=".payment_methods.PaymentMethodsActivity"></activity>
     </application>
 
 </manifest>

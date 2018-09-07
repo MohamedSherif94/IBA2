@@ -32,14 +32,107 @@
                 android:textAlignment="gravity"
                 android:text="@string/comp_establish"/>
 
-            //Electronic Marketing
+            //Marketing
             <Button
-                android:id="@+id/head_online_stock_market_btn"
+                android:id="@+id/works_development_marketing_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right|center_vertical"
                 android:textAlignment="gravity"
-                android:text="@string/electronic_marketing"/>
+                android:text="@string/_marketing"/>
+            <LinearLayout
+                android:id="@+id/works_development_marketing_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:visibility="gone">
+
+                //Marketing Plans Button
+                <Button
+                    android:id="@+id/works_development_marketing_plans_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:textAlignment="gravity"
+                    android:text="@string/marketing_plans"/>
+
+                //Initial Plans Button
+                <Button
+                    android:id="@+id/works_development_initial_plans_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:textAlignment="gravity"
+                    android:text="@string/initial_plans"/>
+
+                //Implementation Plans Button
+                <Button
+                    android:id="@+id/works_development_implementation_plans_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:textAlignment="gravity"
+                    android:text="@string/implementation_plans"/>
+
+            </LinearLayout>
+
+            //Social Media Services
+            <Button
+                android:id="@+id/works_development_social_media_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:textAlignment="gravity"
+                android:text="@string/social_media_sevices"/>
+            <LinearLayout
+                android:id="@+id/works_development_social_media_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:visibility="gone">
+
+                //Marketing Plans Button
+                <Button
+                    android:id="@+id/works_development_multiple_packages_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:textAlignment="gravity"
+                    android:text="@string/multiple_packages"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="ltr"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_facebook"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_linkedin"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_google"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
 
 
 

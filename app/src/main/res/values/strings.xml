@@ -17,6 +17,7 @@
     <string name="payment_arabic">طرق الدفع</string>
     <string name="library_arabic">المكتبة</string>
     <string name="courses_update">تحديث الكورسات</string>
+    <string name="last_news_update">تحديث أخر الأخبار</string>
     <string name="help_center_text_arabic">هل يمكننى مساعدتك</string>
 
     <!-- Start Activity -->
@@ -82,11 +83,31 @@
 
     <!-- Works Development Activity -->
     <string name="comp_establish">1- تأسيس الشركات</string>
-    <string name="electronic_marketing">2- التسويق الإلكتروني</string>
+
+    <string name="_marketing">2- التسويق</string>
+    <string name="marketing_plans">1.2- إعداد الخطط التسويقية</string>
+    <string name="initial_plans">2.2- إعداد الخطط الأولية</string>
+    <string name="implementation_plans">3.2- إعداد الخطط التنفيذية</string>
+
+    <string name="social_media_sevices">3- خدمات السوشيال ميديا</string>
+    <string name="multiple_packages">1.3- باقات متعددة</string>
 
     <!-- Works Development Activity -->
     <string name="free_books">1- كتب مجانية</string>
     <string name="payed_books">2- كتب مدفوعة</string>
     <string name="library_photos">3- صور</string>
     <string name="library_video">4- فيديوهات</string>
+
+    <!--  Payment Methods Activity -->
+    <string name="bank">البنك</string>
+    <string name="cairo_bank">بنك القاهرة</string>
+    <string name="cairo_bank_no">123456789</string>
+    <string name="egypt_bank">بنك مصر</string>
+    <string name="egypt_bank_no">123456789</string>
+    <string name="vodafone_cash">فودافون كاش</string>
+    <string name="vodafone_cash_no1">01013416508</string>
+    <string name="vodafone_cash_no2">01003990432</string>
+    <string name="western_union">Western union</string>
+    <string name="headquarter">بمقر الأكاديمية</string>
+    <string name="address">القاهرة-صلاح سالم-عمارات العبور-عمارة رقم 17أ الدور الخامس</string>
 </resources>

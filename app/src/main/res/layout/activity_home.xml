@@ -426,20 +426,37 @@
 
                 </RelativeLayout>
 
-                //Free
-
+                //Last News Update
                 <RelativeLayout
+                    android:id="@+id/home_rl_last_news_update"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/rl_height"
                     android:layout_weight="1">
 
-                    <Button
-                        android:id="@+id/home_chat_btn"
+                    <ImageView
+                        android:id="@+id/home_ic_last_news_update"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_alignParentRight="true"
-                        android:text="Chat"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/ic_works_development" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/home_ic_last_news_update"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/last_news_update"
+                        android:textColor="@color/home_text_color"
+                        android:textSize="@dimen/home_text_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_thick"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/line_margin"
+                        android:layout_marginRight="@dimen/line_margin"
+                        android:background="@color/line_color" />
 
                 </RelativeLayout>
 
@@ -457,6 +474,7 @@
                     android:src="@drawable/im_help_center" />
 
                 <com.daasuu.bl.BubbleLayout
+                    android:id="@+id/home_help_bubble_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/help_center"

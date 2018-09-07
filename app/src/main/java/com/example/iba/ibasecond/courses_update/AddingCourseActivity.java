@@ -1,6 +1,8 @@
 package com.example.iba.ibasecond.courses_update;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.HashMap;
 
@@ -32,6 +38,9 @@ public class AddingCourseActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
+    //firebase storage
+    private StorageReference mImageStorage;
+
     //Progress Dialog
     private ProgressDialog mRegProgressDialog;
 
@@ -39,7 +48,12 @@ public class AddingCourseActivity extends AppCompatActivity {
     private TextInputLayout mCourseName;
     private TextInputLayout mCoursePlace;
     private TextInputLayout mCoursePrice;
+
+    private Button mImageCourseBtn;
     private Button mAddCourseBtn;
+
+    private String courseImageUrl = null;
+    private static final int GALLERY_PICK = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +68,8 @@ public class AddingCourseActivity extends AppCompatActivity {
         course_category = getIntent().getStringExtra("course_category");
        // Log.v(this.getClass().getSimpleName(), "course_category : "+ course_category);
 
+        mImageStorage = FirebaseStorage.getInstance().getReference();
+
         mRegProgressDialog = new ProgressDialog(this);
 
         mCourseCode = findViewById(R.id.adding_course_code_text);
@@ -61,7 +77,16 @@ public class AddingCourseActivity extends AppCompatActivity {
         mCoursePlace = findViewById(R.id.adding_course_place_text);
         mCoursePrice = findViewById(R.id.adding_course_price_text);
 
+        mImageCourseBtn = findViewById(R.id.adding_course_image_btn);
         mAddCourseBtn = findViewById(R.id.adding_course_btn);
+
+
+        mImageCourseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectCourseImage();
+            }
+        });
 
         mAddCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +110,68 @@ public class AddingCourseActivity extends AppCompatActivity {
 
 
     }
+    private void selectCourseImage() {
+
+        Intent galleryIntent = new Intent();
+        galleryIntent.setType("image/*");
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+
+        startActivityForResult(Intent.createChooser(galleryIntent, "SELECT IMAGE"), GALLERY_PICK);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GALLERY_PICK && resultCode == RESULT_OK) {
+            Uri imageUri = data.getData();
+            // Toast.makeText(SettingsActivity.this, imageUri, Toast.LENGTH_LONG).show();
+            // start cropping activity for pre-acquired image saved on the device
+            CropImage.activity(imageUri)
+                    .setAspectRatio(1, 1)
+                    .start(this);
+
+        }
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+
+            if (resultCode == RESULT_OK) {
+
+                Uri resultUri = result.getUri();
+
+                StorageReference filePath = mImageStorage.child("courses_images").child( helperClass.random()+ ".jpg");
+
+                filePath.putFile(resultUri)
+                        .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    //Toast.makeText(SettingsActivity.this, "Working", Toast.LENGTH_LONG).show();
+                                    task.getResult().getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Uri> task) {
+
+                                            // String download_url = task.getResult().toString();
+                                            courseImageUrl = task.getResult().toString();
+                                            //  Log.v(SettingsActivity.class.getSimpleName(), download_url);
+                                        }
+                                    });
+
+                                } else {
+                                    Toast.makeText(AddingCourseActivity.this, "Error in uploading image.", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+
+                Exception error = result.getError();
+            }
+        }
+    }
+
 
     private void addCourse(String course_code, String course_name, String course_place, String course_price) {
 
@@ -92,6 +179,7 @@ public class AddingCourseActivity extends AppCompatActivity {
                 .child("Training").child(course_type).child(course_category).child(course_code);
 
         HashMap<String, String> courseMap = new HashMap<>();
+        courseMap.put("image", courseImageUrl);
         courseMap.put("name", course_name);
         courseMap.put("place", course_place);
         courseMap.put("price", course_price);

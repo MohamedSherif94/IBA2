@@ -1,13 +1,14 @@
 package com.example.iba.ibasecond.courses_update;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,9 +25,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 
 public class UpdateCourseActivity extends AppCompatActivity {
@@ -37,6 +43,9 @@ public class UpdateCourseActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
+    //firebase storage
+    private StorageReference mImageStorage;
+
     private String course_type;
     private String course_category;
 
@@ -46,12 +55,15 @@ public class UpdateCourseActivity extends AppCompatActivity {
     //Progress Dialog
     private ProgressDialog mProgressDialog;
 
+    private Button mUpdateImageBtn;
     private TextInputLayout mCourseName;
     private TextInputLayout mCoursePlace;
     private TextInputLayout mCoursePrice;
     private Button mUpdateCourseBtn;
 
+    private String courseImageUrl = null;
 
+    private static final int GALLERY_PICK = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +74,11 @@ public class UpdateCourseActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("تحديث كورس");
 
+        mImageStorage = FirebaseStorage.getInstance().getReference();
+
         //Intialization
         coursesList = new ArrayList<>();
+        mUpdateImageBtn = findViewById(R.id.update_course_image_btn);
         mCoursesListSpinner = findViewById(R.id.update_course_spinner);
         mCourseName = findViewById(R.id.update_course_name_text);
         mCoursePlace = findViewById(R.id.update_course_place_text);
@@ -108,13 +123,12 @@ public class UpdateCourseActivity extends AppCompatActivity {
             }
         });
 
-        mUpdateCourseBtn.setOnClickListener(new View.OnClickListener() {
+        mUpdateImageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                selectCourseImage();
             }
         });
-
 
         mUpdateCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,12 +152,75 @@ public class UpdateCourseActivity extends AppCompatActivity {
 
     }
 
+    private void selectCourseImage() {
+
+        Intent galleryIntent = new Intent();
+        galleryIntent.setType("image/*");
+        galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+
+        startActivityForResult(Intent.createChooser(galleryIntent, "SELECT IMAGE"), GALLERY_PICK);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GALLERY_PICK && resultCode == RESULT_OK) {
+            Uri imageUri = data.getData();
+            // Toast.makeText(SettingsActivity.this, imageUri, Toast.LENGTH_LONG).show();
+            // start cropping activity for pre-acquired image saved on the device
+            CropImage.activity(imageUri)
+                    .setAspectRatio(1, 1)
+                    .start(this);
+
+        }
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+
+            if (resultCode == RESULT_OK) {
+
+                Uri resultUri = result.getUri();
+
+                StorageReference filePath = mImageStorage.child("courses_images").child( helperClass.random()+ ".jpg");
+
+                filePath.putFile(resultUri)
+                        .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    //Toast.makeText(SettingsActivity.this, "Working", Toast.LENGTH_LONG).show();
+                                    task.getResult().getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Uri> task) {
+
+                                           // String download_url = task.getResult().toString();
+                                            courseImageUrl = task.getResult().toString();
+                                            //  Log.v(SettingsActivity.class.getSimpleName(), download_url);
+                                        }
+                                    });
+
+                                } else {
+                                    Toast.makeText(UpdateCourseActivity.this, "Error in uploading image.", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+
+                Exception error = result.getError();
+            }
+        }
+    }
+
     private void updateCourse(String course_name, String course_place, String course_price) {
         String course_code = String.valueOf(mCoursesListSpinner.getSelectedItem());
         mDatabase = FirebaseDatabase.getInstance().getReference()
                 .child("Training").child(course_type).child(course_category).child(course_code);
 
         HashMap<String, String> courseMap = new HashMap<>();
+        courseMap.put("image", courseImageUrl);
         courseMap.put("name", course_name);
         courseMap.put("place", course_place);
         courseMap.put("price", course_price);
@@ -173,5 +250,6 @@ public class UpdateCourseActivity extends AppCompatActivity {
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mCoursesListSpinner.setAdapter(spinnerArrayAdapter);
     }
+
 
 }

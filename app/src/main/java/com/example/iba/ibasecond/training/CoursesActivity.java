@@ -5,23 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.iba.ibasecond.HelperClass;
 import com.example.iba.ibasecond.R;
-import com.example.iba.ibasecond.training.Course;
-import com.example.iba.ibasecond.training.CourseViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 public class CoursesActivity extends AppCompatActivity {
 
+    private Toolbar mToolbar;
     private RecyclerView mCoursesList;
 
     //Progress Dialog
@@ -33,7 +31,11 @@ public class CoursesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_economy_courses);
+        setContentView(R.layout.activity_courses);
+
+        mToolbar = findViewById(R.id.courses_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("الكورسات المتاحة");
 
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setTitle("تحميل الكورسات");
@@ -44,7 +46,7 @@ public class CoursesActivity extends AppCompatActivity {
         course_type = getIntent().getStringExtra(HelperClass.COURSE_TYPE);
         course_category = getIntent().getStringExtra(HelperClass.COURSE_CATEGORY);
 
-        mCoursesList = findViewById(R.id.economy_courses_list);
+        mCoursesList = findViewById(R.id.courses_list);
         mCoursesList.setLayoutManager(new LinearLayoutManager(this));
 
     }

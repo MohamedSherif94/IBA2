@@ -27,6 +27,8 @@ public class HomeStudentActivity extends AppCompatActivity {
     private ImageView mImVTwitter;
     private ImageView mImVLinkedin;
 
+    private RelativeLayout mRLLastNews;
+    private RelativeLayout mRLPaymentMethods;
     private RelativeLayout mRLTraining;
     private RelativeLayout mRLWorksDevlopment;
     private RelativeLayout mRLLibrary;
@@ -54,6 +56,8 @@ public class HomeStudentActivity extends AppCompatActivity {
         mImVTwitter = findViewById(R.id.home_ic_twitter);
         mImVLinkedin = findViewById(R.id.home_ic_linkedin);
 
+        mRLLastNews = findViewById(R.id.home_student_rl_last_news);
+        mRLPaymentMethods = findViewById(R.id.home_student_rl_payment);
         mRLWorksDevlopment = findViewById(R.id.home_student_rl_works_development);
         mRLTraining = findViewById(R.id.home_student_rl_training);
         mRLLibrary = findViewById(R.id.home_student_rl_library);
@@ -101,6 +105,20 @@ public class HomeStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 helperClass.openLinkedInPage();
+            }
+        });
+
+        mRLLastNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openLastNewsActivity();
+            }
+        });
+
+        mRLPaymentMethods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openPaymentMethodsActivity();
             }
         });
 

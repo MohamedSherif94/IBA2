@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:layoutDirection="rtl"
+    tools:context=".payment_methods.PaymentMethodsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/payment_methods_toolbar"
+            layout="@layout/app_bar_layout"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            //Bank Button
+            <Button
+                android:id="@+id/payment_bank_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right|center_vertical"
+                android:textAlignment="gravity"
+                android:text="@string/bank"/>
+            //Bank No
+            <LinearLayout
+                android:id="@+id/payment_bank_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:visibility="gone">
+
+                //Cairo Bank
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    //Cairo Bank
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical"
+                        android:textAlignment="gravity"
+                        android:text="@string/cairo_bank"/>
+                    //Cairo Bank No
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/cairo_bank_no"/>
+
+                </LinearLayout>
+
+                //Egypt Bank
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    //Egypt Bank
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical"
+                        android:textAlignment="gravity"
+                        android:text="@string/egypt_bank"/>
+
+                    //Egypt Bank No
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/cairo_bank_no"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            //Vodafone Cash
+            <Button
+                android:id="@+id/payment_vodafone_cash_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="right|center_vertical"
+                android:textAlignment="gravity"
+                android:text="@string/vodafone_cash"/>
+            //Vodafone Cash No
+            <LinearLayout
+                android:id="@+id/payment_vodafone_cash_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:visibility="gone">
+
+                //Vodafone Cash No 1
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical"
+                        android:textAlignment="gravity"
+                        android:text="رقم 1"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/vodafone_cash_no1"/>
+                </LinearLayout>
+
+                //Vodafone Cash No 2
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical"
+                        android:textAlignment="gravity"
+                        android:text="رقم 2"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/vodafone_cash_no2"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            //Western union
+            <Button
+                android:id="@+id/payment_western_union_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="right|center_vertical"
+                android:textAlignment="gravity"
+                android:text="@string/western_union"/>
+            //Western union no
+            <LinearLayout
+                android:id="@+id/payment_western_union_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:textAlignment="gravity"
+                    android:text="إتصل لمتابعة خطوات التحويل"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/vodafone_cash_no1"/>
+            </LinearLayout>
+
+
+
+            //Headquarter
+            <Button
+                android:id="@+id/payment_headquarter_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="right|center_vertical"
+                android:textAlignment="gravity"
+                android:text="@string/headquarter"/>
+            <TextView
+                android:id="@+id/payment_headquarter_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:textAlignment="center"
+                android:text="@string/address"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

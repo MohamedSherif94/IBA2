@@ -2,7 +2,6 @@ package com.example.iba.ibasecond;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,10 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.daasuu.bl.BubbleLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity {
@@ -31,13 +30,16 @@ public class HomeActivity extends AppCompatActivity {
     private ImageView mImVTwitter;
     private ImageView mImVLinkedin;
 
+    private RelativeLayout mRLLastNews;
+    private RelativeLayout mRLPaymentMethods;
     private RelativeLayout mRLTraining;
     private RelativeLayout mRLWorksDevlopment;
     private RelativeLayout mRLCoursesUpdate;
     private RelativeLayout mRLLibrary;
+    private RelativeLayout mRLLastNewsUpdate;
 
 
-    private Button mChatBtn;
+    private BubbleLayout mHelpBubbleLayout;
 
 
     HelperClass helperClass = new HelperClass(this);
@@ -62,13 +64,16 @@ public class HomeActivity extends AppCompatActivity {
         mImVTwitter = findViewById(R.id.home_ic_twitter);
         mImVLinkedin = findViewById(R.id.home_ic_linkedin);
 
+        mRLLastNews = findViewById(R.id.home_rl_last_news);
+        mRLPaymentMethods = findViewById(R.id.home_rl_payment);
         mRLWorksDevlopment = findViewById(R.id.home_rl_works_development);
         mRLTraining = findViewById(R.id.home_rl_training);
         mRLCoursesUpdate = findViewById(R.id.home_rl_courses_update);
         mRLLibrary = findViewById(R.id.home_rl_library);
+        mRLLastNewsUpdate = findViewById(R.id.home_rl_last_news_update);
 
-        mChatBtn = findViewById(R.id.home_chat_btn);
-        mChatBtn.setOnClickListener(new View.OnClickListener() {
+        mHelpBubbleLayout = findViewById(R.id.home_help_bubble_layout);
+        mHelpBubbleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 helperClass.openChatHomeActivity();
@@ -114,6 +119,20 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        mRLLastNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openLastNewsActivity();
+            }
+        });
+
+        mRLPaymentMethods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openPaymentMethodsActivity();
+            }
+        });
+
         mRLWorksDevlopment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +158,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 helperClass.openLibraryActivity();
+            }
+        });
+
+        mRLLastNewsUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openNewsUpdateActivity();
             }
         });
 

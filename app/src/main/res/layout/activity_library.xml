@@ -41,9 +41,9 @@
                 android:textAlignment="gravity"
                 android:text="@string/payed_books"/>
 
-            //Photos
+            //Images
             <Button
-                android:id="@+id/library_photos_btn"
+                android:id="@+id/library_images_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right|center_vertical"

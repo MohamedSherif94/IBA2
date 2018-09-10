@@ -1,5 +1,6 @@
 package com.example.iba.ibasecond.works_development;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -7,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.iba.ibasecond.HelperClass;
 import com.example.iba.ibasecond.R;
+import com.example.iba.ibasecond.works_development.social_media_services.PackagesActivity;
 
 public class WorksDevelopmentActivity extends AppCompatActivity {
 
@@ -16,6 +19,8 @@ public class WorksDevelopmentActivity extends AppCompatActivity {
     private Button mCompaniesEstablishmentBtn;
     private Button mMarketingBtn;
     private Button mSocialMediaBtn;
+
+    private Button mMultiplePackagesBtn;
 
     private LinearLayout mLLMarketing;
     private LinearLayout mLLSocialMedia;
@@ -72,6 +77,15 @@ public class WorksDevelopmentActivity extends AppCompatActivity {
             }
         });
 
+        mMultiplePackagesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorksDevelopmentActivity.this, PackagesActivity.class);
+                intent.putExtra(HelperClass.PACKAGE_CATEGORY, HelperClass.MULTIPLE_PACKAGES);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
@@ -80,6 +94,8 @@ public class WorksDevelopmentActivity extends AppCompatActivity {
         mCompaniesEstablishmentBtn = findViewById(R.id.works_development_comp_establish_btn);
         mMarketingBtn = findViewById(R.id.works_development_marketing_btn);
         mSocialMediaBtn = findViewById(R.id.works_development_social_media_btn);
+
+        mMultiplePackagesBtn = findViewById(R.id.works_development_multiple_packages_btn);
 
         mLLMarketing = findViewById(R.id.works_development_marketing_layout);
         mLLSocialMedia = findViewById(R.id.works_development_social_media_layout);

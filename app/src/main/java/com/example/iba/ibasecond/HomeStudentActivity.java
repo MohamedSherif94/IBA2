@@ -13,14 +13,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.squareup.picasso.Picasso;
+
 public class HomeStudentActivity extends AppCompatActivity {
 
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
+
     private Toolbar mToolbar;
 
     private ImageView mImVLogin;
+
+    private ImageView mLogoImageView;
 
     //Social Media
     private ImageView mImVFacebook;
@@ -33,6 +38,13 @@ public class HomeStudentActivity extends AppCompatActivity {
     private RelativeLayout mRLWorksDevlopment;
     private RelativeLayout mRLLibrary;
 
+    private ImageView mIcLastNews;
+    private ImageView mIcAboutUs;
+    private ImageView mIcLibrary;
+    private ImageView mIcTraining;
+    private ImageView mIcWorksDevelopment;
+    private ImageView mIcPaymentMethods;
+
     HelperClass helperClass = new HelperClass(this);
 
     @Override
@@ -44,23 +56,11 @@ public class HomeStudentActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         mToolbar.setTitleTextColor(Color.WHITE);
         ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("أكاديمية إستثمار و بنوك");
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
-        mDrawerLayout = findViewById(R.id.home_student_drawer_layout);
-        mNavigationView = findViewById(R.id.home_student_nav_view);
-
-        mImVLogin = findViewById(R.id.home_student_login_btn);
-
-        mImVFacebook = findViewById(R.id.home_ic_facebook);
-        mImVTwitter = findViewById(R.id.home_ic_twitter);
-        mImVLinkedin = findViewById(R.id.home_ic_linkedin);
-
-        mRLLastNews = findViewById(R.id.home_student_rl_last_news);
-        mRLPaymentMethods = findViewById(R.id.home_student_rl_payment);
-        mRLWorksDevlopment = findViewById(R.id.home_student_rl_works_development);
-        mRLTraining = findViewById(R.id.home_student_rl_training);
-        mRLLibrary = findViewById(R.id.home_student_rl_library);
+        initializeComponents();
 
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -73,6 +73,27 @@ public class HomeStudentActivity extends AppCompatActivity {
 
                         // Add code here to update the UI based on the item selected
                         // For example, swap UI fragments here
+                        int id = menuItem.getItemId();
+                        switch (id){
+                            case R.id.nav_home_student_last_news_ic:
+                                helperClass.openLastNewsActivity();
+                                break;
+                            case R.id.nav_home_student_about_us_ic:
+
+                                break;
+                            case R.id.nav_home_student_library_ic:
+                                helperClass.openLibraryActivity();
+                                break;
+                            case R.id.nav_home_student_training_ic:
+                                helperClass.openTrainingActivity();
+                                break;
+                            case R.id.nav_home_student_works_development_ic:
+                                helperClass.openWorksDevelopmentActivity();
+                                break;
+                            case R.id.nav_home_student_payment_methods_ic:
+                                helperClass.openPaymentMethodsActivity();
+                                break;
+                        }
 
                         return true;
                     }
@@ -149,10 +170,59 @@ public class HomeStudentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.END);
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void initializeComponents(){
+        mDrawerLayout = findViewById(R.id.home_student_drawer_layout);
+        mNavigationView = findViewById(R.id.home_student_nav_view);
+
+        mLogoImageView = findViewById(R.id.home_student_logo_image_view);
+
+        mImVLogin = findViewById(R.id.home_student_login_btn);
+
+        mImVFacebook = findViewById(R.id.home_ic_facebook);
+        mImVTwitter = findViewById(R.id.home_ic_twitter);
+        mImVLinkedin = findViewById(R.id.home_ic_linkedin);
+
+        mRLLastNews = findViewById(R.id.home_student_rl_last_news);
+        mRLPaymentMethods = findViewById(R.id.home_student_rl_payment);
+        mRLWorksDevlopment = findViewById(R.id.home_student_rl_works_development);
+        mRLTraining = findViewById(R.id.home_student_rl_training);
+        mRLLibrary = findViewById(R.id.home_student_rl_library);
+
+        mIcLastNews = findViewById(R.id.home_student_ic_last_news);
+        mIcAboutUs = findViewById(R.id.home_student_ic_about_us);
+        mIcLibrary = findViewById(R.id.home_student_ic_library);
+        mIcTraining = findViewById(R.id.home_student_ic_training);
+        mIcWorksDevelopment = findViewById(R.id.home_student_ic_works_dev);
+        mIcPaymentMethods = findViewById(R.id.home_student_ic_payment);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Picasso.get().load(HelperClass.acd_logo).into(mLogoImageView);
+        Picasso.get().load(HelperClass.ic_last_news).into(mIcLastNews);
+        Picasso.get().load(HelperClass.ic_about_us).into(mIcAboutUs);
+        Picasso.get().load(HelperClass.ic_library).into(mIcLibrary);
+        Picasso.get().load(HelperClass.ic_training).into(mIcTraining);
+        Picasso.get().load(HelperClass.ic_works_development).into(mIcWorksDevelopment);
+        Picasso.get().load(HelperClass.ic_payment_method).into(mIcPaymentMethods);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
 }

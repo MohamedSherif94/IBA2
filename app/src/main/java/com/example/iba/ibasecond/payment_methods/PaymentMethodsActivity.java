@@ -1,5 +1,6 @@
 package com.example.iba.ibasecond.payment_methods;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +10,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.iba.ibasecond.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class PaymentMethodsActivity extends AppCompatActivity {
 
@@ -23,12 +32,16 @@ public class PaymentMethodsActivity extends AppCompatActivity {
     private LinearLayout mLLVodafoneCash;
     private LinearLayout mLLWesternUnion;
 
+    private TextView mVCNo1Textview;
+    private TextView mVCNo2Textview;
     private TextView mHeadquarterTextview;
 
     private boolean notVisibleBank = true;
     private boolean notVisibleVodafone = true;
     private boolean notVisibleWestern = true;
     private boolean notVisibleHeadquarter = true;
+
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +120,43 @@ public class PaymentMethodsActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+                .child("طرق الدفع").child("فودافون كاش");
+
+        final HashMap<String, String> vodCashMap = new HashMap<>();
+        vodCashMap.clear();
+
+        Query query = mDatabase;
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot child: dataSnapshot.getChildren())
+                {
+                    String key = child.getKey().toString();
+                    String value = child.getValue().toString();
+                    vodCashMap.put(key, value);
+                }
+
+                mVCNo1Textview.setText(vodCashMap.get("number1"));
+                mVCNo2Textview.setText(vodCashMap.get("number2"));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setValuesOnTextViews(HashMap<String, String> imageMap) {
+    }
+
     private void initializeComponents() {
         mBankBtn = findViewById(R.id.payment_bank_btn);
         mVodafoneCashBtn = findViewById(R.id.payment_vodafone_cash_btn);
@@ -117,8 +167,9 @@ public class PaymentMethodsActivity extends AppCompatActivity {
         mLLVodafoneCash = findViewById(R.id.payment_vodafone_cash_layout);
         mLLWesternUnion = findViewById(R.id.payment_western_union_layout);
 
+        mVCNo1Textview = findViewById(R.id.payment_methods_v_c_no1);
+        mVCNo2Textview = findViewById(R.id.payment_methods_v_c_no2);
         mHeadquarterTextview = findViewById(R.id.payment_headquarter_textview);
-
 
     }
 }

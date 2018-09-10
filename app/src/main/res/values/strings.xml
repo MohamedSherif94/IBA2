@@ -16,7 +16,7 @@
     <string name="staff_arabic">الموظفين</string>
     <string name="payment_arabic">طرق الدفع</string>
     <string name="library_arabic">المكتبة</string>
-    <string name="courses_update">تحديث الكورسات</string>
+    <string name="updates">التحديثات </string>
     <string name="last_news_update">تحديث أخر الأخبار</string>
     <string name="help_center_text_arabic">هل يمكننى مساعدتك</string>
 
@@ -26,11 +26,11 @@
     <string name="need_a_new_account">NEED A NEW ACCOUNT ?</string>
     <!-- Register Activity -->
     <string name="display_name">Display Name</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">الباسورد</string>
     <string name="create_account">CREATE ACCOUNT</string>
     <!-- Login Activity -->
-    <string name="login">Login</string>
+    <string name="login">سجل دخول</string>
     <!-- Chat Home Activity -->
     <string name="log_out">Log Out</string>
 
@@ -110,4 +110,20 @@
     <string name="western_union">Western union</string>
     <string name="headquarter">بمقر الأكاديمية</string>
     <string name="address">القاهرة-صلاح سالم-عمارات العبور-عمارة رقم 17أ الدور الخامس</string>
+
+    <!-- All Update Activity -->
+    <string name="_last_news_update">تحديث أخر الأخبار</string>
+    <string name="_library_update">تحديث المكتبة</string>
+    <string name="_courses_update">تحديث الكورسات</string>
+    <string name="_works_development_update">تحديث تطوير الأعمال</string>
+    <string name="_payment_mehtods_update">تحديث طرق الدفع</string>
+
+    <!-- Library Update -->
+    <string name="adding_new_book">إضافة كتاب جديد</string>
+    <string name="adding_new_image">إضافة صورة جديد</string>
+    <string name="update_book">تحديث كتاب</string>
+    <string name="update_image">تحديث صورة</string>
+    <string name="choose_book">من فضلك إختار الكتاب الذى تريد تحديثه :</string>
+    <string name="choose_image">من فضلك إختار كود الصورة الذى تريد تحديثها :</string>
+
 </resources>

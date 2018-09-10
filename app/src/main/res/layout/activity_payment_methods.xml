@@ -124,6 +124,7 @@
                         android:textAlignment="gravity"
                         android:text="رقم 1"/>
                     <TextView
+                        android:id="@+id/payment_methods_v_c_no1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
@@ -143,6 +144,7 @@
                         android:textAlignment="gravity"
                         android:text="رقم 2"/>
                     <TextView
+                        android:id="@+id/payment_methods_v_c_no2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"

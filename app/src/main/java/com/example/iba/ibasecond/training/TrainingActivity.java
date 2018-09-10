@@ -26,7 +26,7 @@ public class TrainingActivity extends AppCompatActivity {
 
         mToolbar = findViewById(R.id.training_toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Training");
+        getSupportActionBar().setTitle("التدريب");
 
         mHeadOnlineBtn = findViewById(R.id.training_head_online_btn);
         mTourismBtn = findViewById(R.id.training_tourism_btn);

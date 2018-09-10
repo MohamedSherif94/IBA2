@@ -13,12 +13,13 @@
     <!-- Layout to contain contents of main body of screen -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:fillViewport="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             //Toolbar
             <android.support.v7.widget.Toolbar
@@ -33,16 +34,18 @@
 
             //Logo
             <ImageView
+                android:id="@+id/home_logo_image_view"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:src="@drawable/acd_logo" />
+                android:layout_below="@id/toolbar"
+                android:layout_centerHorizontal="true" />
 
             //Social Media
-
             <RelativeLayout
+                android:id="@+id/home_social_media_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/home_logo_image_view"
                 android:layout_marginTop="-50dp"
                 android:gravity="center">
 
@@ -80,10 +83,11 @@
             </RelativeLayout>
 
             //First Row
-
             <LinearLayout
+                android:id="@+id/home_first_row_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/home_social_media_rl"
                 android:layout_marginTop="20dp"
                 android:layoutDirection="rtl"
                 android:orientation="horizontal">
@@ -97,11 +101,10 @@
 
                     <ImageView
                         android:id="@+id/home_ic_last_news"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_home" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -138,11 +141,10 @@
 
                     <ImageView
                         android:id="@+id/home_ic_about_us"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_about_us" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -179,11 +181,10 @@
 
                     <ImageView
                         android:id="@+id/home_ic_library"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_gifts" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -209,8 +210,10 @@
 
             //Second Row
             <LinearLayout
+                android:id="@+id/home_second_row_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/home_first_row_rl"
                 android:layout_marginTop="15dp"
                 android:layoutDirection="rtl"
                 android:orientation="horizontal">
@@ -224,11 +227,10 @@
 
                     <ImageView
                         android:id="@+id/home_ic_training"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_training" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -265,11 +267,10 @@
 
                     <ImageView
                         android:id="@+id/home_ic_works_dev"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_works_development" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -306,11 +307,10 @@
 
                     <ImageView
                         android:id="@+id/home_ic_payment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_clients" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -336,14 +336,15 @@
             //Third Row
 
             <LinearLayout
+                android:id="@+id/home_third_row_rl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/home_second_row_rl"
                 android:layout_marginTop="15dp"
                 android:layoutDirection="rtl"
                 android:orientation="horizontal">
 
                 //Staff
-
                 <RelativeLayout
                     android:id="@+id/home_rl_staff"
                     android:layout_width="0dp"
@@ -352,11 +353,10 @@
 
                     <ImageView
                         android:id="@+id/home_ic_staff"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_staff" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -385,27 +385,26 @@
                 </RelativeLayout>
 
 
-                //Courses Update
+                //Updates
                 <RelativeLayout
-                    android:id="@+id/home_rl_courses_update"
+                    android:id="@+id/home_rl_updates"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/rl_height"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/home_ic_courses_update"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/home_ic_updates"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_works_development" />
+                        android:layout_marginTop="30dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/home_ic_courses_update"
+                        android:layout_below="@id/home_ic_updates"
                         android:layout_centerHorizontal="true"
-                        android:text="@string/courses_update"
+                        android:text="@string/updates"
                         android:textColor="@color/home_text_color"
                         android:textSize="@dimen/home_text_size" />
 
@@ -426,37 +425,13 @@
 
                 </RelativeLayout>
 
-                //Last News Update
+                //Free
                 <RelativeLayout
                     android:id="@+id/home_rl_last_news_update"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/rl_height"
                     android:layout_weight="1">
 
-                    <ImageView
-                        android:id="@+id/home_ic_last_news_update"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp"
-                        android:src="@drawable/ic_works_development" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_ic_last_news_update"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/last_news_update"
-                        android:textColor="@color/home_text_color"
-                        android:textSize="@dimen/home_text_size" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/line_thick"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/line_margin"
-                        android:layout_marginRight="@dimen/line_margin"
-                        android:background="@color/line_color" />
 
                 </RelativeLayout>
 
@@ -464,13 +439,16 @@
 
             //Help Center
             <RelativeLayout
+                android:id="@+id/home_help_center_rl"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/help_center"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
                     android:src="@drawable/im_help_center" />
 
                 <com.daasuu.bl.BubbleLayout
@@ -501,7 +479,7 @@
 
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </ScrollView>
 
@@ -511,7 +489,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layoutDirection="rtl"
-        android:layout_gravity="end"
+        android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_view"/>

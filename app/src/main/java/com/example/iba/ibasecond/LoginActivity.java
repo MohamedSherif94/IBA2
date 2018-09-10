@@ -41,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mToolbar = findViewById(R.id.login_toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Login");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("سجل دخول");
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -59,14 +59,16 @@ public class LoginActivity extends AppCompatActivity {
                 String email = mEmail.getEditText().getText().toString().trim();
                 String password = mPassword.getEditText().getText().toString().trim();
 
-                if( !TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)){
+                if( !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
 
-                    mLogProgressDialog.setTitle("Logging in");
-                    mLogProgressDialog.setMessage("Please wait while we check your credentials");
+                    mLogProgressDialog.setTitle("تسجيل الدخول");
+                    mLogProgressDialog.setMessage("من فضلك إنتظر حتي نتحقق من الإيميل و الباسورد");
                     mLogProgressDialog.setCanceledOnTouchOutside(false);
                     mLogProgressDialog.show();
 
                     login_user(email, password);
+                } else {
+                    Toast.makeText(LoginActivity.this, "من فضلك أدخل البريد الإلكتروني والباسورد !!! ", Toast.LENGTH_SHORT).show();
                 }
             }
         });

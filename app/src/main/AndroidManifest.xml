@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".HomeActivity"
             android:theme="@style/HomeActivityTheme" />
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/login"
@@ -59,7 +62,16 @@
         <activity android:name=".library.LibraryActivity" />
         <activity android:name=".last_news.LastNewsActivity" />
         <activity android:name=".last_news.NewsUpdateActivity" />
-        <activity android:name=".payment_methods.PaymentMethodsActivity"></activity>
+        <activity android:name=".payment_methods.PaymentMethodsActivity" />
+        <activity android:name=".library.BooksActivity" />
+        <activity android:name=".AllUpdateActivity" />
+        <activity android:name=".library_update.LibraryContentActivity" />
+        <activity android:name=".library_update.LibraryUpdateTypeActivity" />
+        <activity android:name=".library_update.AddingBookActivity" />
+        <activity android:name=".library_update.UpdateBookActivity" />
+        <activity android:name=".library_update.AddingImageActivity" />
+        <activity android:name=".library_update.UpdateImageActivity" />
+        <activity android:name=".works_development.social_media_services.PackagesActivity"></activity>
     </application>
 
 </manifest>

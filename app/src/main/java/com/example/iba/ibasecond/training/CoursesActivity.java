@@ -56,7 +56,6 @@ public class CoursesActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         startListening();
-
     }
 
     public void startListening(){

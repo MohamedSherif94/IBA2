@@ -79,6 +79,7 @@ public class HomeChatActivity extends AppCompatActivity {
             sendToStartActivity();
         }
 
+        /*
         if (item.getItemId() == R.id.home_chat_account_settings_btn){
             Intent settingsIntent = new Intent(HomeChatActivity.this, SettingsActivity.class);
             startActivity(settingsIntent);
@@ -88,6 +89,7 @@ public class HomeChatActivity extends AppCompatActivity {
             Intent usersIntent = new Intent(HomeChatActivity.this, UsersActivity.class);
             startActivity(usersIntent);
         }
+        */
         return true;
     }
 }

@@ -9,7 +9,6 @@
     android:fitsSystemWindows="true"
     tools:context=".HomeActivity">
 
-
     <!-- Layout to contain contents of main body of screen -->
     <ScrollView
         android:layout_width="match_parent"
@@ -51,7 +50,6 @@
 
 
                 //Facebook Icon
-
                 <ImageView
                     android:id="@+id/home_ic_facebook"
                     android:layout_width="@dimen/social_media_width"
@@ -61,7 +59,6 @@
                     android:src="@drawable/ic_facebook" />
 
                 //Twitter Icon
-
                 <ImageView
                     android:id="@+id/home_ic_twitter"
                     android:layout_width="@dimen/social_media_width"
@@ -71,7 +68,6 @@
                     android:src="@drawable/ic_twitter" />
 
                 //LinkedIn Icon
-
                 <ImageView
                     android:id="@+id/home_ic_linkedin"
                     android:layout_width="@dimen/social_media_width"
@@ -79,6 +75,15 @@
                     android:layout_marginRight="@dimen/social_media_margin"
                     android:layout_toRightOf="@id/home_ic_twitter"
                     android:src="@drawable/ic_linkedin" />
+
+                //Instagram Icon
+                <ImageView
+                    android:id="@+id/home_ic_instagram"
+                    android:layout_width="@dimen/social_media_width"
+                    android:layout_height="@dimen/social_media_height"
+                    android:layout_marginRight="@dimen/social_media_margin"
+                    android:layout_toRightOf="@id/home_ic_linkedin"
+                    android:src="@drawable/instagram" />
 
             </RelativeLayout>
 
@@ -334,7 +339,6 @@
             </LinearLayout>
 
             //Third Row
-
             <LinearLayout
                 android:id="@+id/home_third_row_rl"
                 android:layout_width="match_parent"
@@ -343,47 +347,6 @@
                 android:layout_marginTop="15dp"
                 android:layoutDirection="rtl"
                 android:orientation="horizontal">
-
-                //Staff
-                <RelativeLayout
-                    android:id="@+id/home_rl_staff"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/rl_height"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/home_ic_staff"
-                        android:layout_width="50dp"
-                        android:layout_height="40dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="30dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/home_ic_staff"
-                        android:layout_centerHorizontal="true"
-                        android:text="@string/staff_arabic"
-                        android:textColor="@color/home_text_color"
-                        android:textSize="@dimen/home_text_size" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/line_thick"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="@dimen/line_margin"
-                        android:layout_marginRight="@dimen/line_margin"
-                        android:background="@color/line_color" />
-
-                    <View
-                        android:layout_width="@dimen/line_thick"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginBottom="@dimen/line_margin"
-                        android:background="@color/line_color" />
-
-                </RelativeLayout>
-
 
                 //Updates
                 <RelativeLayout
@@ -425,6 +388,16 @@
 
                 </RelativeLayout>
 
+                //free
+                <RelativeLayout
+                    android:id="@+id/home_rl_staff"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/rl_height"
+                    android:layout_weight="1">
+
+
+                </RelativeLayout>
+
                 //Free
                 <RelativeLayout
                     android:id="@+id/home_rl_last_news_update"
@@ -437,46 +410,45 @@
 
             </LinearLayout>
 
-            //Help Center
-            <RelativeLayout
-                android:id="@+id/home_help_center_rl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true">
+            <!--//Help Center-->
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/home_help_center_rl"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true">-->
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/help_center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:src="@drawable/im_help_center" />
+                <!--<de.hdodenhof.circleimageview.CircleImageView-->
+                    <!--android:id="@+id/help_center"-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_alignParentLeft="true"-->
+                    <!--android:src="@drawable/im_help_center" />-->
 
-                <com.daasuu.bl.BubbleLayout
-                    android:id="@+id/home_help_bubble_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/help_center"
-                    app:bl_bubbleColor="@color/colorPrimary"
-                    app:bl_strokeColor="@color/colorPrimary"
-                    android:padding="8dp"
-                    app:bl_arrowDirection="left"
-                    app:bl_arrowHeight="8dp"
-                    app:bl_arrowPosition="16dp"
-                    app:bl_arrowWidth="8dp"
-                    app:bl_strokeWidth="1dp">
+                <!--<com.daasuu.bl.BubbleLayout-->
+                    <!--android:id="@+id/home_help_bubble_layout"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_toRightOf="@id/help_center"-->
+                    <!--app:bl_bubbleColor="@color/colorPrimary"-->
+                    <!--app:bl_strokeColor="@color/colorPrimary"-->
+                    <!--android:padding="8dp"-->
+                    <!--app:bl_arrowDirection="left"-->
+                    <!--app:bl_arrowHeight="8dp"-->
+                    <!--app:bl_arrowPosition="16dp"-->
+                    <!--app:bl_arrowWidth="8dp"-->
+                    <!--app:bl_strokeWidth="1dp">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="4dp"
-                        android:text="@string/help_center_text_arabic"
-                        android:textColor="@android:color/white" />
-                </com.daasuu.bl.BubbleLayout>
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center_vertical"-->
+                        <!--android:layout_marginRight="4dp"-->
+                        <!--android:text="@string/help_center_text_arabic"-->
+                        <!--android:textColor="@android:color/white" />-->
+                <!--</com.daasuu.bl.BubbleLayout>-->
 
 
-            </RelativeLayout>
-
+            <!--</RelativeLayout>-->
 
 
         </RelativeLayout>

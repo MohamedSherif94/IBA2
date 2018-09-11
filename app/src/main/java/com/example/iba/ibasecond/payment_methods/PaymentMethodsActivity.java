@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -32,8 +33,11 @@ public class PaymentMethodsActivity extends AppCompatActivity {
     private LinearLayout mLLVodafoneCash;
     private LinearLayout mLLWesternUnion;
 
+    private TextView mCairoBankTextview;
+    private TextView mMasrBankTextview;
     private TextView mVCNo1Textview;
     private TextView mVCNo2Textview;
+    private TextView mWesternUnionTextview;
     private TextView mHeadquarterTextview;
 
     private boolean notVisibleBank = true;
@@ -125,13 +129,13 @@ public class PaymentMethodsActivity extends AppCompatActivity {
         super.onStart();
 
         mDatabase = FirebaseDatabase.getInstance().getReference()
-                .child("طرق الدفع").child("فودافون كاش");
+                .child("طرق الدفع");
 
         final HashMap<String, String> vodCashMap = new HashMap<>();
         vodCashMap.clear();
 
-        Query query = mDatabase;
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        Query query = mDatabase.child("فودافون كاش");
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -140,6 +144,8 @@ public class PaymentMethodsActivity extends AppCompatActivity {
                     String key = child.getKey().toString();
                     String value = child.getValue().toString();
                     vodCashMap.put(key, value);
+
+                  //  Log.v(PaymentMethodsActivity.class.getSimpleName(), key +" : "+value);
                 }
 
                 mVCNo1Textview.setText(vodCashMap.get("number1"));
@@ -152,6 +158,10 @@ public class PaymentMethodsActivity extends AppCompatActivity {
 
             }
         });
+
+        setBanksNumber();
+        setWesternNumber();
+        setHeadquarterAddress();
     }
 
     private void setValuesOnTextViews(HashMap<String, String> imageMap) {
@@ -167,9 +177,102 @@ public class PaymentMethodsActivity extends AppCompatActivity {
         mLLVodafoneCash = findViewById(R.id.payment_vodafone_cash_layout);
         mLLWesternUnion = findViewById(R.id.payment_western_union_layout);
 
+        mCairoBankTextview = findViewById(R.id.payment_methods_cairo_bank_no);
+        mMasrBankTextview = findViewById(R.id.payment_methods_masr_bank_no);
+
         mVCNo1Textview = findViewById(R.id.payment_methods_v_c_no1);
         mVCNo2Textview = findViewById(R.id.payment_methods_v_c_no2);
+
+        mWesternUnionTextview = findViewById(R.id.payment_methods_western_union);
+
         mHeadquarterTextview = findViewById(R.id.payment_headquarter_textview);
 
     }
+
+    private void setBanksNumber(){
+        final HashMap<String, String> banksMap = new HashMap<>();
+        banksMap.clear();
+
+        Query query = mDatabase.child("البنك");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot child: dataSnapshot.getChildren())
+                {
+                    String key = child.getKey().toString();
+                    String value = child.getValue().toString();
+                    banksMap.put(key, value);
+
+                    //  Log.v(PaymentMethodsActivity.class.getSimpleName(), key +" : "+value);
+                }
+
+                mCairoBankTextview.setText(banksMap.get("بنك القاهرة"));
+                mMasrBankTextview.setText(banksMap.get("بنك مصر"));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setWesternNumber(){
+        final HashMap<String, String> banksMap = new HashMap<>();
+        banksMap.clear();
+
+        Query query = mDatabase.child("western union");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot child: dataSnapshot.getChildren())
+                {
+                    String key = child.getKey().toString();
+                    String value = child.getValue().toString();
+                    banksMap.put(key, value);
+
+                    //  Log.v(PaymentMethodsActivity.class.getSimpleName(), key +" : "+value);
+                }
+
+                mWesternUnionTextview.setText(banksMap.get("text"));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setHeadquarterAddress(){
+        final HashMap<String, String> banksMap = new HashMap<>();
+        banksMap.clear();
+
+        Query query = mDatabase.child("بمقر الأكاديمية");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot child: dataSnapshot.getChildren())
+                {
+                    String key = child.getKey().toString();
+                    String value = child.getValue().toString();
+                    banksMap.put(key, value);
+
+                    //  Log.v(PaymentMethodsActivity.class.getSimpleName(), key +" : "+value);
+                }
+
+                mHeadquarterTextview.setText(banksMap.get("text"));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }

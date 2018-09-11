@@ -1,13 +1,5 @@
 <resources>
-    <string name="app_name">IBA</string>
-    <string name="home">Home</string>
-    <string name="about_us">About Us</string>
-    <string name="president_word">President Word</string>
-    <string name="service_products">Services</string>
-    <string name="staff">Staff</string>
-    <string name="clients">Clients</string>
-    <string name="gifts">Gifts</string>
-    <string name="help_center_text">Can i help you?</string>
+    <string name="app_name">استثمار و بنوك</string>
 
     <string name="last_news_arabic">أخر الأخبار</string>
     <string name="about_us_arabic">معلومات عن الأكاديمية</string>
@@ -125,5 +117,11 @@
     <string name="update_image">تحديث صورة</string>
     <string name="choose_book">من فضلك إختار الكتاب الذى تريد تحديثه :</string>
     <string name="choose_image">من فضلك إختار كود الصورة الذى تريد تحديثها :</string>
+
+    <!-- About Us -->
+    <string name="about_academy">عن الأكاديمية</string>
+    <string name="vision_message">الرؤية و الرسالة</string>
+    <string name="president_word">كلمة رئيس مجلس الإدارة</string>
+    <string name="cooperation_contacts">جهات التعاون</string>
 
 </resources>

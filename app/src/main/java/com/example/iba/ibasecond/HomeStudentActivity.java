@@ -1,6 +1,7 @@
 package com.example.iba.ibasecond;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,7 +14,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
 
 public class HomeStudentActivity extends AppCompatActivity {
 
@@ -31,8 +40,15 @@ public class HomeStudentActivity extends AppCompatActivity {
     private ImageView mImVFacebook;
     private ImageView mImVTwitter;
     private ImageView mImVLinkedin;
+    private ImageView mImVInstagram;
+
+    private String facebookPageUrl;
+    private String instagramUrl;
+    private String linkedinUrl;
+    private String twitterUrl;
 
     private RelativeLayout mRLLastNews;
+    private RelativeLayout mRLAboutUs;
     private RelativeLayout mRLPaymentMethods;
     private RelativeLayout mRLTraining;
     private RelativeLayout mRLWorksDevlopment;
@@ -45,6 +61,7 @@ public class HomeStudentActivity extends AppCompatActivity {
     private ImageView mIcWorksDevelopment;
     private ImageView mIcPaymentMethods;
 
+    private DatabaseReference mDatabase;
     HelperClass helperClass = new HelperClass(this);
 
     @Override
@@ -62,6 +79,9 @@ public class HomeStudentActivity extends AppCompatActivity {
 
         initializeComponents();
 
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+                .child("social media");
+
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -78,18 +98,23 @@ public class HomeStudentActivity extends AppCompatActivity {
                             case R.id.nav_home_student_last_news_ic:
                                 helperClass.openLastNewsActivity();
                                 break;
-                            case R.id.nav_home_student_about_us_ic:
 
+                            case R.id.nav_home_student_about_us_ic:
+                                helperClass.openAboutUsActivity();
                                 break;
+
                             case R.id.nav_home_student_library_ic:
                                 helperClass.openLibraryActivity();
                                 break;
+
                             case R.id.nav_home_student_training_ic:
                                 helperClass.openTrainingActivity();
                                 break;
+
                             case R.id.nav_home_student_works_development_ic:
                                 helperClass.openWorksDevelopmentActivity();
                                 break;
+
                             case R.id.nav_home_student_payment_methods_ic:
                                 helperClass.openPaymentMethodsActivity();
                                 break;
@@ -111,21 +136,28 @@ public class HomeStudentActivity extends AppCompatActivity {
         mImVFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openFacebookPage();
+                helperClass.openSocialMediaPage(facebookPageUrl);
             }
         });
 
         mImVTwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openTwitterPage();
+                helperClass.openSocialMediaPage(twitterUrl);
             }
         });
 
         mImVLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                helperClass.openLinkedInPage();
+                helperClass.openSocialMediaPage(linkedinUrl);
+            }
+        });
+
+        mImVInstagram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openSocialMediaPage(instagramUrl);
             }
         });
 
@@ -133,6 +165,13 @@ public class HomeStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 helperClass.openLastNewsActivity();
+            }
+        });
+
+        mRLAboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                helperClass.openAboutUsActivity();
             }
         });
 
@@ -184,11 +223,13 @@ public class HomeStudentActivity extends AppCompatActivity {
 
         mImVLogin = findViewById(R.id.home_student_login_btn);
 
-        mImVFacebook = findViewById(R.id.home_ic_facebook);
-        mImVTwitter = findViewById(R.id.home_ic_twitter);
-        mImVLinkedin = findViewById(R.id.home_ic_linkedin);
+        mImVFacebook = findViewById(R.id.home_student_ic_facebook);
+        mImVTwitter = findViewById(R.id.home_student_ic_twitter);
+        mImVLinkedin = findViewById(R.id.home_student_ic_linkedin);
+        mImVInstagram = findViewById(R.id.home_student_ic_instagram);
 
         mRLLastNews = findViewById(R.id.home_student_rl_last_news);
+        mRLAboutUs = findViewById(R.id.home_student_rl_about_us);
         mRLPaymentMethods = findViewById(R.id.home_student_rl_payment);
         mRLWorksDevlopment = findViewById(R.id.home_student_rl_works_development);
         mRLTraining = findViewById(R.id.home_student_rl_training);
@@ -206,6 +247,8 @@ public class HomeStudentActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        getSocialMediaUrls();
+
         Picasso.get().load(HelperClass.acd_logo).into(mLogoImageView);
         Picasso.get().load(HelperClass.ic_last_news).into(mIcLastNews);
         Picasso.get().load(HelperClass.ic_about_us).into(mIcAboutUs);
@@ -214,6 +257,37 @@ public class HomeStudentActivity extends AppCompatActivity {
         Picasso.get().load(HelperClass.ic_works_development).into(mIcWorksDevelopment);
         Picasso.get().load(HelperClass.ic_payment_method).into(mIcPaymentMethods);
 
+    }
+
+    private void getSocialMediaUrls(){
+
+        final HashMap<String, String> socialMediaMap = new HashMap<>();
+
+        Query query = mDatabase;
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot child: dataSnapshot.getChildren())
+                {
+                    String key = child.getKey().toString();
+                    String value = child.getValue().toString();
+                    socialMediaMap.put(key, value);
+
+                    //  Log.v(PaymentMethodsActivity.class.getSimpleName(), key +" : "+value);
+                }
+
+                facebookPageUrl = socialMediaMap.get("facebook");
+                twitterUrl = socialMediaMap.get("twitter");
+                linkedinUrl = socialMediaMap.get("linkedin");
+                instagramUrl = socialMediaMap.get("instagram");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

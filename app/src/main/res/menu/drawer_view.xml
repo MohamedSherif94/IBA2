@@ -22,9 +22,6 @@
             android:title="@string/payment_arabic" />
 
         <item
-            android:id="@+id/nav_home_employees_ic"
-            android:title="@string/staff_arabic" />
-        <item
             android:id="@+id/nav_home_update_ic"
             android:title="@string/updates" />
 

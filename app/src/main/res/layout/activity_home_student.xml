@@ -48,7 +48,6 @@
                 android:src="@drawable/acd_logo" />
 
             //Social Media
-
             <RelativeLayout
                 android:id="@+id/home_student_social_media_rl"
                 android:layout_width="match_parent"
@@ -58,9 +57,8 @@
                 android:gravity="center">
 
                 //Facebook Icon
-
                 <ImageView
-                    android:id="@+id/home_ic_facebook"
+                    android:id="@+id/home_student_ic_facebook"
                     android:layout_width="@dimen/social_media_width"
                     android:layout_height="@dimen/social_media_height"
                     android:layout_marginLeft="30dp"
@@ -68,24 +66,31 @@
                     android:src="@drawable/ic_facebook" />
 
                 //Twitter Icon
-
                 <ImageView
-                    android:id="@+id/home_ic_twitter"
+                    android:id="@+id/home_student_ic_twitter"
                     android:layout_width="@dimen/social_media_width"
                     android:layout_height="@dimen/social_media_height"
                     android:layout_marginRight="@dimen/social_media_margin"
-                    android:layout_toRightOf="@id/home_ic_facebook"
+                    android:layout_toRightOf="@id/home_student_ic_facebook"
                     android:src="@drawable/ic_twitter" />
 
                 //LinkedIn Icon
-
                 <ImageView
-                    android:id="@+id/home_ic_linkedin"
+                    android:id="@+id/home_student_ic_linkedin"
                     android:layout_width="@dimen/social_media_width"
                     android:layout_height="@dimen/social_media_height"
                     android:layout_marginRight="@dimen/social_media_margin"
-                    android:layout_toRightOf="@id/home_ic_twitter"
+                    android:layout_toRightOf="@id/home_student_ic_twitter"
                     android:src="@drawable/ic_linkedin" />
+
+                //Instagram Icon
+                <ImageView
+                    android:id="@+id/home_student_ic_instagram"
+                    android:layout_width="@dimen/social_media_width"
+                    android:layout_height="@dimen/social_media_height"
+                    android:layout_marginRight="@dimen/social_media_margin"
+                    android:layout_toRightOf="@id/home_student_ic_linkedin"
+                    android:src="@drawable/instagram" />
             </RelativeLayout>
 
             //First Row
@@ -340,48 +345,6 @@
                 </RelativeLayout>
 
             </LinearLayout>
-
-            //Help Center
-
-            <RelativeLayout
-                android:id="@+id/home_student_help_center_rl"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/help_center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:src="@drawable/im_help_center" />
-
-                <com.daasuu.bl.BubbleLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/help_center"
-                    android:padding="8dp"
-                    app:bl_arrowDirection="left"
-                    app:bl_arrowHeight="8dp"
-                    app:bl_arrowPosition="16dp"
-                    app:bl_arrowWidth="8dp"
-                    app:bl_bubbleColor="@color/colorPrimary"
-                    app:bl_strokeColor="@color/colorPrimary"
-                    app:bl_strokeWidth="1dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="4dp"
-                        android:text="@string/help_center_text_arabic"
-                        android:textColor="@android:color/white" />
-                </com.daasuu.bl.BubbleLayout>
-
-
-            </RelativeLayout>
-
-
 
         </RelativeLayout>
 

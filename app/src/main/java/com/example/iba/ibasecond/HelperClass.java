@@ -3,8 +3,10 @@ package com.example.iba.ibasecond;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.example.iba.ibasecond.Services.ServicesActivity;
+import com.example.iba.ibasecond.about_us.AboutUs;
 import com.example.iba.ibasecond.courses_update.AddingCourseActivity;
 import com.example.iba.ibasecond.courses_update.CoursesTypesActivity;
 import com.example.iba.ibasecond.courses_update.UpdateCourseActivity;
@@ -18,6 +20,7 @@ import com.example.iba.ibasecond.library_update.LibraryContentActivity;
 import com.example.iba.ibasecond.library_update.LibraryUpdateTypeActivity;
 import com.example.iba.ibasecond.library_update.UpdateBookActivity;
 import com.example.iba.ibasecond.payment_methods.PaymentMethodsActivity;
+import com.example.iba.ibasecond.training.CourseDetailsActivity;
 import com.example.iba.ibasecond.training.head_online_courses.HeadOrOnlineCoursesActivity;
 import com.example.iba.ibasecond.training.TrainingActivity;
 import com.example.iba.ibasecond.training.CoursesActivity;
@@ -29,10 +32,6 @@ import java.util.Random;
 public class HelperClass {
 
     Context context;
-
-    private String facebookUrl = "https://www.facebook.com/iba.eg.usa/";
-    private String twitterUrl = "https://twitter.com/iba_usa";
-    private String linkedinUrl = "https://eg.linkedin.com/in/iba-eg-usa-71192016a?trk=profile-badge";
 
     public static String acd_logo = "https://firebasestorage.googleapis.com/v0/b/ibachat-77f29.appspot.com/o/icons%2Facd_logo.png?alt=media&token=f529f050-caf4-46c0-a431-6a290b91ce58";
     public static String adc_nav_logo = "https://firebasestorage.googleapis.com/v0/b/ibachat-77f29.appspot.com/o/icons%2Fadc_nav_logo.png?alt=media&token=cf5e64b2-2e17-42ad-add6-6ac1268c5efe";
@@ -70,20 +69,14 @@ public class HelperClass {
         this.context = context;
     }
 
-    public void openFacebookPage() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookUrl));
-        context.startActivity(intent);
+    public void openSocialMediaPage(String url) {
 
-    }
-
-    public void openTwitterPage() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(twitterUrl));
-        context.startActivity(intent);
-    }
-
-    public void openLinkedInPage() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkedinUrl));
-        context.startActivity(intent);
+        try {
+             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+             context.startActivity(intent);
+        }catch (Exception e){
+            Toast.makeText(context, "sorry, We will create page soon", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void openLoginActivity() {
@@ -164,6 +157,11 @@ public class HelperClass {
         context.startActivity(intent);
     }
 
+    public void openAboutUsActivity() {
+        Intent intent = new Intent(context, AboutUs.class);
+        context.startActivity(intent);
+    }
+
     public void openNewsUpdateActivity() {
         Intent intent = new Intent(context, NewsUpdateActivity.class);
         context.startActivity(intent);
@@ -204,6 +202,14 @@ public class HelperClass {
 
     public void openServicesActivity() {
         Intent intent = new Intent(context, ServicesActivity.class);
+        context.startActivity(intent);
+    }
+
+    public void openCourseDetailsActivity(String courseImageUrl, String courseName, String courseDescription) {
+        Intent intent = new Intent(context, CourseDetailsActivity.class);
+        intent.putExtra("course_image", courseImageUrl);
+        intent.putExtra("course_name", courseName);
+        intent.putExtra("course_description", courseDescription);
         context.startActivity(intent);
     }
 
